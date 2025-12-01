@@ -4,6 +4,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className = "h-12" }) =
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       {/* Abstract representation of the Swirl Logo */}
+<<<<<<< HEAD
       <svg viewBox="0 0 100 100" className="h-full w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="50" cy="50" r="48" stroke="#FECB46" strokeWidth="4" fill="white"/>
         <path d="M50 10 C 70 10, 90 30, 90 50 C 90 80, 60 90, 50 90 C 30 90, 10 70, 10 50 C 10 20, 40 10, 50 10" fill="#004E86" opacity="0.9" />
@@ -13,6 +14,12 @@ export const Logo: React.FC<{ className?: string }> = ({ className = "h-12" }) =
       <div className="flex flex-col justify-center">
         <span className="font-bold text-totora-dark text-lg leading-tight tracking-tight uppercase">Totora</span>
         <span className="font-semibold text-totora-light text-xs tracking-widest uppercase">Surf School</span>
+=======
+      <img src="/images/logoWithoutText.webp" alt="Totora Surf School Logo" className="h-full w-auto" />
+      <div className="flex flex-col justify-center min-w-max">
+        <span className="font-bold text-totora-dark text-base md:text-lg leading-tight tracking-tight uppercase">Totora</span>
+        <span className="font-semibold text-totora-light text-[10px] md:text-xs tracking-widest uppercase">Surf School</span>
+>>>>>>> 5fa91d5 (Initial commit)
       </div>
     </div>
   );

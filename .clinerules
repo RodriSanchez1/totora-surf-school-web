@@ -1,0 +1,85 @@
+# Claude Code Rules for Totora Surf School Project
+
+## Memory Bank Management
+
+### Rule 1: Update PROJECT_BRIEF.md on Significant Changes
+**When**: After making significant changes to the project (new features, major refactors, configuration changes, new dependencies, design system updates)
+**Action**: Update the `memory-bank/PROJECT_BRIEF.md` file to reflect the changes
+**Examples of significant changes**:
+- Adding new components or sections to the landing page
+- Updating dependencies in package.json
+- Changing the design system (colors, typography, layouts)
+- Modifying the project structure
+- Adding new features or services
+- Changing build configuration
+- Updating SEO metadata
+- Adding new internationalization support
+
+**How to update**:
+1. Read the current PROJECT_BRIEF.md
+2. Identify which sections need updates based on the changes made
+3. Update only the relevant sections while preserving the document structure
+4. Ensure accuracy and completeness of the information
+
+### Rule 2: Initialize Memory Bank on New Thread
+**When**: At the start of every new conversation thread
+**Action**: Read the `memory-bank/PROJECT_BRIEF.md` file to understand the project context
+**Purpose**: Ensures continuity and context awareness across different conversation sessions
+
+**Initialization checklist**:
+- Read memory-bank/PROJECT_BRIEF.md
+- Understand current project status
+- Review recent changes if mentioned
+- Be aware of the tech stack and architecture
+
+### Rule 3: Keep Memory Bank Lean and Relevant
+**When**: During PROJECT_BRIEF.md updates
+**Action**: Keep the document concise and focused on essential information
+**Guidelines**:
+- Avoid redundant information
+- Focus on high-level architecture and key decisions
+- Update version numbers and status as needed
+- Remove outdated information
+- Keep the document under 200 lines for quick reference
+
+### Rule 4: Document New Patterns and Conventions
+**When**: Establishing new coding patterns or conventions
+**Action**: Add them to a new section in PROJECT_BRIEF.md or create a separate conventions file
+**Examples**:
+- Component naming conventions
+- File organization patterns
+- Styling approaches
+- State management patterns
+- API integration patterns
+
+## Automatic Update Triggers
+
+The following actions should trigger a PROJECT_BRIEF.md review/update:
+
+1. **Package Changes**: When package.json is modified
+   - Update "Technology Stack" section
+   - Update version number if changed
+
+2. **Component Architecture Changes**: When new major components are added to App.tsx
+   - Update "Key Features" section
+
+3. **Design System Changes**: When colors, fonts, or themes are modified
+   - Update "Design System" section
+
+4. **Build Configuration**: When vite.config.ts, tsconfig.json change
+   - Update "Technology Stack" or add "Build Configuration" section
+
+5. **Internationalization**: When new languages or i18n features are added
+   - Update "Internationalization" section
+
+6. **Project Structure**: When major directories or files are reorganized
+   - Update "Project Structure" section
+
+## Best Practices
+
+- Always read PROJECT_BRIEF.md before starting work on a task
+- Update PROJECT_BRIEF.md as part of completing major features
+- Keep the memory bank directory organized
+- Use clear, concise language in documentation
+- Include examples where helpful
+- Keep technical details accurate and up-to-date
