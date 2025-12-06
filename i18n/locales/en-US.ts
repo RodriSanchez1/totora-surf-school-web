@@ -233,4 +233,7 @@ export const enUS = {
   'surfSchoolPage.videoServices.drone.desc': 'Spectacular aerial capture of your waves. Unique perspective for complete analysis and incredible memories.',
   'surfSchoolPage.videoServices.analysis.title': 'Technical Analysis',
   'surfSchoolPage.videoServices.analysis.desc': 'Detailed review of your technique with expert instructor. Identification of areas for improvement and personalized plan.',
+
+  // WhatsApp Button
+  'whatsapp.tooltip': 'Chat with us',
 };

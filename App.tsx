@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/ui/ScrollToTop';
+import WhatsAppButton from './components/ui/WhatsAppButton';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { Home } from './pages/Home';
 import { AboutPage } from './pages/AboutPage';
@@ -23,6 +24,7 @@ function App() {
             <Route path="/surf-school" element={<SurfSchoolPage />} />
           </Routes>
           <Footer />
+          <WhatsAppButton />
         </div>
       </Router>
     </LanguageProvider>

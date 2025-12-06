@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Wifi, Coffee, Utensils, MapPin, Users, Bed } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { WaveDivider } from '../components/ui/WaveDivider';
-import { BOOKING_URL } from '../constants';
+import { WHATSAPP_URL } from '../constants';
 
 export const HostelPage: React.FC = () => {
   const amenities = [
@@ -170,7 +170,7 @@ export const HostelPage: React.FC = () => {
           <p className="text-xl text-gray-100 mb-8">
             <FormattedMessage id="hostelPage.cta.subtitle" />
           </p>
-          <Button href={BOOKING_URL} variant="primary" className="text-lg px-10 py-4">
+          <Button href={WHATSAPP_URL} variant="primary" className="text-lg px-10 py-4">
             <FormattedMessage id="hostelPage.cta.button" />
           </Button>
         </div>

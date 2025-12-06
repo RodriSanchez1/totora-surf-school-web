@@ -174,4 +174,7 @@ export const fr = {
   'surfSchoolPage.videoServices.drone.desc': 'Capture aérienne spectaculaire de vos vagues.',
   'surfSchoolPage.videoServices.analysis.title': 'Analyse Technique',
   'surfSchoolPage.videoServices.analysis.desc': 'Révision détaillée de votre technique.',
+
+  // WhatsApp Button
+  'whatsapp.tooltip': 'Chattez avec nous',
 };

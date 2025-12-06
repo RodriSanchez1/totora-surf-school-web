@@ -14,3 +14,5 @@ export const CONTACT_INFO = {
   email: "info@totorasurfschool.com",
   phone: "+51 961 861 770"
 };
+
+export const WHATSAPP_URL = "https://wa.me/51961861770";

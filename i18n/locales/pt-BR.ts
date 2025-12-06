@@ -173,4 +173,7 @@ export const ptBR = {
   'surfSchoolPage.videoServices.drone.desc': 'Captura aérea espetacular de suas ondas.',
   'surfSchoolPage.videoServices.analysis.title': 'Análise Técnica',
   'surfSchoolPage.videoServices.analysis.desc': 'Revisão detalhada de sua técnica.',
+
+  // WhatsApp Button
+  'whatsapp.tooltip': 'Converse conosco',
 };

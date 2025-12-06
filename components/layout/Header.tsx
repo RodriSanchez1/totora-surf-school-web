@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Logo } from '../ui/Logo';
 import { Button } from '../ui/Button';
-import { NAVIGATION_LINKS, BOOKING_URL } from '../../constants';
+import { NAVIGATION_LINKS, WHATSAPP_URL } from '../../constants';
 import { FormattedMessage } from 'react-intl';
 import { LanguageSelector } from '../shared/LanguageSelector';
 
@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
             ))}
             <div className="border-l border-gray-300 pl-6 flex items-center gap-4">
               <LanguageSelector />
-              <Button href={BOOKING_URL} variant="primary" className="shadow-lg animate-pulse hover:animate-none">
+              <Button href={WHATSAPP_URL} variant="primary" className="shadow-lg animate-pulse hover:animate-none">
                 <FormattedMessage id="nav.book" />
               </Button>
             </div>
@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
                 <FormattedMessage id={link.id} />
               </Link>
             ))}
-            <Button href={BOOKING_URL} variant="primary" fullWidth onClick={() => setIsMobileMenuOpen(false)}>
+            <Button href={WHATSAPP_URL} variant="primary" fullWidth onClick={() => setIsMobileMenuOpen(false)}>
               <FormattedMessage id="nav.book" />
             </Button>
           </div>

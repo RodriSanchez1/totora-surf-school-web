@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../ui/Button';
-import { BOOKING_URL } from '../../constants';
+import { WHATSAPP_URL } from '../../constants';
 import { FormattedMessage } from 'react-intl';
 
 export const CallToAction: React.FC = () => {
@@ -14,9 +14,9 @@ export const CallToAction: React.FC = () => {
         <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-8 leading-tight">
           <FormattedMessage id="cta.title" />
         </h2>
-        <Button 
-          href={BOOKING_URL} 
-          variant="primary" 
+        <Button
+          href={WHATSAPP_URL}
+          variant="primary"
           className="text-lg md:text-xl px-12 py-5 shadow-2xl hover:shadow-totora-yellow/50 transform hover:-translate-y-1 font-bold"
         >
           <FormattedMessage id="cta.button" />

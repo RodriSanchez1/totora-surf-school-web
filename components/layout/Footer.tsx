@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { Logo } from "../ui/Logo";
-import { NAVIGATION_LINKS, BOOKING_URL, CONTACT_INFO } from "../../constants";
+import { NAVIGATION_LINKS, WHATSAPP_URL, CONTACT_INFO } from "../../constants";
 import { Button } from "../ui/Button";
 import { FormattedMessage } from "react-intl";
 
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
               <FormattedMessage id="footer.readyDesc" />
             </p>
             <Button
-              href={BOOKING_URL}
+              href={WHATSAPP_URL}
               variant="primary"
               fullWidth
               className="font-bold"

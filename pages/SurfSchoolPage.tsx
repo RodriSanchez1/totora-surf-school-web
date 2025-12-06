@@ -8,7 +8,7 @@ import { SurfTripCard } from '../components/ui/SurfTripCard';
 import { EquipmentCard } from '../components/ui/EquipmentCard';
 import { VideoServiceCard } from '../components/ui/VideoServiceCard';
 import { VideoBackground } from '../components/ui/VideoBackground';
-import { BOOKING_URL } from '../constants';
+import { WHATSAPP_URL } from '../constants';
 
 export const SurfSchoolPage: React.FC = () => {
   const [expandedPackages, setExpandedPackages] = useState<number | null>(null);
@@ -284,7 +284,7 @@ export const SurfSchoolPage: React.FC = () => {
                   </div>
 
                   {/* CTA Button */}
-                  <Button href={BOOKING_URL} variant="primary" fullWidth>
+                  <Button href={WHATSAPP_URL} variant="primary" fullWidth>
                     <FormattedMessage id="surfSchoolPage.levels.bookButton" />
                   </Button>
                 </div>
@@ -460,7 +460,7 @@ export const SurfSchoolPage: React.FC = () => {
           <p className="text-xl text-gray-600 mb-8">
             <FormattedMessage id="surfSchoolPage.cta.subtitle" />
           </p>
-          <Button href={BOOKING_URL} variant="primary" className="text-lg px-10 py-4">
+          <Button href={WHATSAPP_URL} variant="primary" className="text-lg px-10 py-4">
             <FormattedMessage id="surfSchoolPage.cta.button" />
           </Button>
         </div>

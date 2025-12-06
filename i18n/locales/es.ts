@@ -227,4 +227,7 @@ export const es = {
   'surfSchoolPage.videoServices.drone.desc': 'Captura aérea espectacular de tus olas. Perspectiva única para análisis completo y recuerdos increíbles.',
   'surfSchoolPage.videoServices.analysis.title': 'Análisis Técnico',
   'surfSchoolPage.videoServices.analysis.desc': 'Revisión detallada de tu técnica con instructor experto. Identificación de áreas de mejora y plan personalizado.',
+
+  // WhatsApp Button
+  'whatsapp.tooltip': 'Chatea con nosotros',
 };

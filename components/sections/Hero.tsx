@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../ui/Button';
-import { BOOKING_URL } from '../../constants';
+import { WHATSAPP_URL } from '../../constants';
 import { ChevronDown } from 'lucide-react';
 import { FormattedMessage } from 'react-intl';
 
@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button href={BOOKING_URL} variant="primary" className="text-lg px-10 py-4 shadow-xl hover:scale-105">
+          <Button href={WHATSAPP_URL} variant="primary" className="text-lg px-10 py-4 shadow-xl hover:scale-105">
             <FormattedMessage id="hero.cta" />
           </Button>
         </div>
