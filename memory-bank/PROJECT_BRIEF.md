@@ -106,24 +106,15 @@ Language context provided via `LanguageProvider` component wrapping the entire a
 ### Current Status
 - Version: 0.0.0
 - Git Branch: main
-- Recent Activity: Redesigned Surf School Classes section with improved pricing structure
+- Recent Activity: Optimized Hostel Page Spacing and Layout.
   - **UI/UX Improvements**:
-    - Redesigned Levels section from alternating layout to modern 3-column grid of cards
-    - Added expandable accordion for package pricing within each level card
-    - Implemented special badge highlighting video analysis service for intermediate/advanced levels
-    - Improved visual hierarchy with prominent base price display (100 soles)
-  - **Pricing Structure Updates**:
-    - Unified base price: 100 soles per class (all levels)
-    - Class duration updated: 1:30 hours (all levels)
-    - Optional add-ons: Photos (+15 soles), Videos (+40 soles)
-    - Package discounts: 5 classes (10% off), 10 classes (15% off), 15 classes (20% off)
-    - Video service for intermediate/advanced includes technical wave analysis
-  - **i18n Updates**: Added 25+ new translation keys for pricing and packages in 4 languages (ES, EN, PT-BR, FR)
-  - **Components Modified**: SurfSchoolPage.tsx - Complete redesign of Levels section
-  - **Previous Enhancements**:
-    - UI Components: ImageCarousel, SurfTripCard, EquipmentCard, VideoServiceCard, VideoBackground, WaveDivider
-    - Sections: Surf Trips, Equipment Rental, Video Services
-    - Dependencies: embla-carousel-react
+    - Significantly reduced vertical spacing between room options for a tighter, more cohesive look.
+    - Adjusted image heights and gaps to create a "Pro Designer" feel.
+    - Refined typography sizes for better balance.
+    - Maintained the alternating layout but with improved rhythm.
+  - **Previous Activity**: Refined Hostel Page Room Presentation and Mobile View.
+    - Optimized mobile layout with responsive image heights.
+    - Integrated "Shared Bathroom" badge as a stylish image overlay.
 
 ### Key Differentiators
 - Located in Huanchaco, the birthplace of traditional totora reed surfing

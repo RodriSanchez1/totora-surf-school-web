@@ -1,9 +1,243 @@
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Wifi, Coffee, Utensils, MapPin, Users, Bed } from 'lucide-react';
+import React, { useState } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
+import { Wifi, Coffee, Utensils, MapPin, Users, Bed, X, ChevronLeft, ChevronRight, Send, Calendar, User, Mail, Home, MessageSquare } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { WaveDivider } from '../components/ui/WaveDivider';
 import { WHATSAPP_URL } from '../constants';
+
+const BookingForm: React.FC = () => {
+  const intl = useIntl();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    dates: '',
+    roomType: 'privateOcean',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const roomTypeName = intl.formatMessage({ id: `hostelPage.rooms.${formData.roomType}.title` });
+    
+    const text = `Hola Totora Surf School, estoy interesado en reservar:
+    
+*Nombre:* ${formData.name}
+*Email:* ${formData.email}
+*Fechas:* ${formData.dates}
+*Habitación:* ${roomTypeName}
+*Mensaje:* ${formData.message}
+
+Vi en la web que hay descuento por reservar directo.`;
+
+    const encodedText = encodeURIComponent(text);
+    window.open(`${WHATSAPP_URL}?text=${encodedText}`, '_blank');
+  };
+
+  return (
+    <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
+      <div className="text-center mb-8">
+        <h3 className="text-2xl font-bold text-totora-dark mb-2">
+          <FormattedMessage id="hostelPage.form.title" />
+        </h3>
+        <p className="text-totora-light font-semibold">
+          <FormattedMessage id="hostelPage.form.subtitle" />
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
+          <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+            <User size={18} className="text-totora-light" />
+            <FormattedMessage id="hostelPage.form.name" />
+          </label>
+          <input
+            type="text"
+            name="name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all"
+          />
+        </div>
+
+        <div>
+          <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+            <Mail size={18} className="text-totora-light" />
+            <FormattedMessage id="hostelPage.form.email" />
+          </label>
+          <input
+            type="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all"
+          />
+        </div>
+
+        <div>
+          <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+            <Calendar size={18} className="text-totora-light" />
+            <FormattedMessage id="hostelPage.form.dates" />
+          </label>
+          <input
+            type="text"
+            name="dates"
+            placeholder="DD/MM/YYYY - DD/MM/YYYY"
+            required
+            value={formData.dates}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all"
+          />
+        </div>
+
+        <div>
+          <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+            <Home size={18} className="text-totora-light" />
+            <FormattedMessage id="hostelPage.form.roomType" />
+          </label>
+          <select
+            name="roomType"
+            value={formData.roomType}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all bg-white"
+          >
+            <option value="privateOcean">{intl.formatMessage({ id: 'hostelPage.rooms.privateOcean.title' })}</option>
+            <option value="privateBalcony">{intl.formatMessage({ id: 'hostelPage.rooms.privateBalcony.title' })}</option>
+            <option value="privateStandard">{intl.formatMessage({ id: 'hostelPage.rooms.privateStandard.title' })}</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+            <MessageSquare size={18} className="text-totora-light" />
+            <FormattedMessage id="hostelPage.form.message" />
+          </label>
+          <textarea
+            name="message"
+            rows={4}
+            value={formData.message}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all resize-none"
+          ></textarea>
+        </div>
+
+        <Button type="submit" variant="primary" fullWidth className="flex items-center justify-center gap-2 text-lg">
+          <Send size={20} />
+          <FormattedMessage id="hostelPage.form.submit" />
+        </Button>
+      </form>
+    </div>
+  );
+};
+
+const Gallery: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  
+  const images = [
+    "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=2071&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=2070&auto=format&fit=crop",
+    "/images/sunset.jpg",
+    "/images/beachfront.webp"
+  ];
+
+  const openLightbox = (index: number) => setSelectedImage(index);
+  const closeLightbox = () => setSelectedImage(null);
+  
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage + 1) % images.length);
+    }
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage - 1 + images.length) % images.length);
+    }
+  };
+
+  return (
+    <section className="py-20 bg-totora-cream">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-totora-dark mb-4">
+            <FormattedMessage id="hostelPage.gallery.title" />
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <FormattedMessage id="hostelPage.gallery.subtitle" />
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {images.map((src, index) => (
+            <div 
+              key={index} 
+              className="relative aspect-square overflow-hidden rounded-xl cursor-pointer group"
+              onClick={() => openLightbox(index)}
+            >
+              <img 
+                src={src} 
+                alt={`Gallery ${index + 1}`} 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 bg-white/90 p-3 rounded-full">
+                  <Users size={24} className="text-totora-dark" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Lightbox */}
+      {selectedImage !== null && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          onClick={closeLightbox}
+        >
+          <button 
+            className="absolute top-4 right-4 text-white hover:text-totora-light transition-colors"
+            onClick={closeLightbox}
+          >
+            <X size={40} />
+          </button>
+          
+          <button 
+            className="absolute left-4 text-white hover:text-totora-light transition-colors hidden md:block"
+            onClick={prevImage}
+          >
+            <ChevronLeft size={48} />
+          </button>
+          
+          <img 
+            src={images[selectedImage]} 
+            alt="Gallery Fullscreen" 
+            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+          
+          <button 
+            className="absolute right-4 text-white hover:text-totora-light transition-colors hidden md:block"
+            onClick={nextImage}
+          >
+            <ChevronRight size={48} />
+          </button>
+        </div>
+      )}
+    </section>
+  );
+};
 
 export const HostelPage: React.FC = () => {
   const amenities = [
@@ -17,22 +251,22 @@ export const HostelPage: React.FC = () => {
 
   const roomTypes = [
     {
-      titleId: "hostelPage.rooms.shared.title",
-      descId: "hostelPage.rooms.shared.desc",
-      priceId: "hostelPage.rooms.shared.price",
-      image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069&auto=format&fit=crop"
+      titleId: "hostelPage.rooms.privateOcean.title",
+      descId: "hostelPage.rooms.privateOcean.desc",
+      priceId: "hostelPage.rooms.privateOcean.price",
+      image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      titleId: "hostelPage.rooms.private.title",
-      descId: "hostelPage.rooms.private.desc",
-      priceId: "hostelPage.rooms.private.price",
+      titleId: "hostelPage.rooms.privateBalcony.title",
+      descId: "hostelPage.rooms.privateBalcony.desc",
+      priceId: "hostelPage.rooms.privateBalcony.price",
       image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=2071&auto=format&fit=crop"
     },
     {
-      titleId: "hostelPage.rooms.oceanview.title",
-      descId: "hostelPage.rooms.oceanview.desc",
-      priceId: "hostelPage.rooms.oceanview.price",
-      image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop"
+      titleId: "hostelPage.rooms.privateStandard.title",
+      descId: "hostelPage.rooms.privateStandard.desc",
+      priceId: "hostelPage.rooms.privateStandard.price",
+      image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069&auto=format&fit=crop"
     }
   ];
 
@@ -125,34 +359,51 @@ export const HostelPage: React.FC = () => {
       {/* Room Types Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-totora-dark mb-4">
               <FormattedMessage id="hostelPage.rooms.title" />
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
               <FormattedMessage id="hostelPage.rooms.subtitle" />
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="space-y-12 md:space-y-24">
             {roomTypes.map((room, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={room.image}
-                    alt="Room type"
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                  />
+              <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6 md:gap-12`}>
+                <div className="w-full md:w-1/2">
+                  <div className="relative h-64 md:h-[400px] rounded-2xl overflow-hidden shadow-lg group">
+                    <img
+                      src={room.image}
+                      alt="Room type"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+                    <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white">
+                       <div className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs md:text-sm font-medium inline-flex items-center gap-2 border border-white/30">
+                          <Users size={14} />
+                          <FormattedMessage id="hostelPage.rooms.sharedBathroom" />
+                       </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-totora-dark mb-3">
+                
+                <div className="w-full md:w-1/2 space-y-3 md:space-y-5 px-2 md:px-0">
+                  <h3 className="text-2xl md:text-4xl font-bold text-totora-dark leading-tight">
                     <FormattedMessage id={room.titleId} />
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  
+                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                     <FormattedMessage id={room.descId} />
                   </p>
-                  <div className="text-totora-light font-bold text-xl mb-4">
-                    <FormattedMessage id={room.priceId} />
+                  
+                  <div className="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-0.5">Precio por noche</p>
+                      <div className="text-2xl md:text-3xl font-bold text-totora-light">
+                        <FormattedMessage id={room.priceId} />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -161,18 +412,49 @@ export const HostelPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-totora-dark text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            <FormattedMessage id="hostelPage.cta.title" />
-          </h2>
-          <p className="text-xl text-gray-100 mb-8">
-            <FormattedMessage id="hostelPage.cta.subtitle" />
-          </p>
-          <Button href={WHATSAPP_URL} variant="primary" className="text-lg px-10 py-4">
-            <FormattedMessage id="hostelPage.cta.button" />
-          </Button>
+      {/* Gallery Section */}
+      <Gallery />
+
+      {/* Booking Form Section */}
+      <section className="py-20 bg-totora-dark relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img src="/images/beachfront.webp" alt="Background" className="w-full h-full object-cover" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="text-white">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <FormattedMessage id="hostelPage.cta.title" />
+              </h2>
+              <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+                <FormattedMessage id="hostelPage.cta.subtitle" />
+              </p>
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                    <Wifi size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg">High Speed WiFi</h4>
+                    <p className="text-gray-300">Perfect for digital nomads</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                    <Coffee size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg">Free Coffee</h4>
+                    <p className="text-gray-300">Start your day right</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <BookingForm />
+            </div>
+          </div>
         </div>
       </section>
     </main>
