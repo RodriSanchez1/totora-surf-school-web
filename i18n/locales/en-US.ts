@@ -104,7 +104,7 @@ export const enUS = {
   'hostelPage.amenities.title': 'Amenities',
   'hostelPage.amenities.subtitle': 'Everything you need for a perfect stay',
   'hostelPage.amenities.wifi': 'High-Speed WiFi',
-  'hostelPage.amenities.coffee': 'Free Coffee & Tea',
+  'hostelPage.amenities.coffee': 'Coffee Shop',
   'hostelPage.amenities.kitchen': 'Fully Equipped Shared Kitchen',
   'hostelPage.amenities.location': 'Oceanfront Location',
   'hostelPage.amenities.common': 'Cozy Common Areas',

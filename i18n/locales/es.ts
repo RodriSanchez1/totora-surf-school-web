@@ -98,7 +98,7 @@ export const es = {
   'hostelPage.amenities.title': 'Comodidades',
   'hostelPage.amenities.subtitle': 'Todo lo que necesitas para una estadía perfecta',
   'hostelPage.amenities.wifi': 'WiFi de Alta Velocidad',
-  'hostelPage.amenities.coffee': 'Café y Té Gratis',
+  'hostelPage.amenities.coffee': 'Cafetería',
   'hostelPage.amenities.kitchen': 'Cocina Compartida Equipada',
   'hostelPage.amenities.location': 'Ubicación Frente al Mar',
   'hostelPage.amenities.common': 'Áreas Comunes Acogedoras',
