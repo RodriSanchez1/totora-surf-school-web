@@ -12,5 +12,5 @@ export const NAVIGATION_LINKS = [
 export const CONTACT_INFO = {
   address: "Huanchaco, Perú",
   email: "info@totorasurfschool.com",
-  phone: "+51 999 999 999" // Placeholder based on typical format
+  phone: "+51 961 861 770"
 };
