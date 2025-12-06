@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
             ))}
             <div className="border-l border-gray-300 pl-6 flex items-center gap-4">
               <LanguageSelector />
-              <Button href={WHATSAPP_URL} variant="primary" className="shadow-lg animate-pulse hover:animate-none">
+              <Button href={WHATSAPP_URL} variant="primary" >
                 <FormattedMessage id="nav.book" />
               </Button>
             </div>
