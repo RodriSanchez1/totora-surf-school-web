@@ -18,7 +18,7 @@ const FeatureItem: React.FC<{ icon: React.ReactNode; titleId: string; descId: st
 
 export const Features: React.FC = () => {
   return (
-    <section id="features" className="py-20 bg-white scroll-mt-28">
+    <section id="features" className="py-20 bg-gradient-to-b from-totora-cream/40 to-white scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-totora-dark mb-4">

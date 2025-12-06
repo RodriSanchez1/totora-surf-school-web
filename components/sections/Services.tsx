@@ -66,7 +66,7 @@ export const Services: React.FC = () => {
   ];
 
   return (
-    <section id="servicios" className="py-20 bg-totora-cream scroll-mt-28">
+    <section id="servicios" className="py-20 bg-gradient-to-b from-totora-dark/5 to-totora-light/5 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-totora-dark mb-4">

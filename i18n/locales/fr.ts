@@ -15,6 +15,7 @@ export const fr = {
   'about.p2': 'Notre nom, "Totora", rend hommage au millénaire cheval de totora, le précurseur du surf moderne utilisé par les pêcheurs ancestraux.',
   'about.p3': 'Nous cherchons à partager la vague parfaite et la riche culture locale, faisant en sorte que chaque invité se sente chez lui dès le premier jour.',
   'about.imageCaption': '"Huanchaco: Tradition Vivante"',
+  'about.learnMore': 'En Savoir Plus',
 
   'services.title': 'Nos Services',
   'services.subtitle': 'Vivez l\'expérience complète du surf et de la culture à Huanchaco.',
@@ -177,4 +178,11 @@ export const fr = {
 
   // WhatsApp Button
   'whatsapp.tooltip': 'Chattez avec nous',
+
+  // Location Section
+  'location.title': 'Notre Emplacement',
+  'location.subtitle': 'Trouvez-nous au cœur de Huanchaco',
+  'location.address.label': 'Adresse',
+  'location.directions': 'Itinéraire',
+  'location.contactUs': 'Nous Contacter',
 };

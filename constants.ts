@@ -16,3 +16,5 @@ export const CONTACT_INFO = {
 };
 
 export const WHATSAPP_URL = "https://wa.me/51961861770";
+
+export const GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d962.1389826318871!2d-79.12238875388697!3d-8.077906499278027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3bfd202c2735%3A0xa7a2a6ab86cad7d5!2sTotora%20Surf%20School!5e0!3m2!1sen!2spe!4v1733521234567!5m2!1sen!2spe";
