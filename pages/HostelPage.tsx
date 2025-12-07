@@ -497,7 +497,9 @@ export const HostelPage: React.FC = () => {
                   </p>
 
                   <div className="pt-4 border-t border-gray-100 mt-4">
-                    <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-3">Precio por noche</p>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-3">
+                      <FormattedMessage id="hostelPage.rooms.pricePerNight" />
+                    </p>
 
                     <div className="flex items-center gap-4 mb-6">
                       <div className="flex items-center gap-2">
@@ -525,7 +527,7 @@ export const HostelPage: React.FC = () => {
                       onClick={() => handleSelectRoom(room.roomType)}
                       className="mt-4"
                     >
-                      Lo quiero
+                      <FormattedMessage id="hostelPage.rooms.bookButton" />
                     </Button>
                   </div>
                 </div>

@@ -108,6 +108,8 @@ export const es = {
   'hostelPage.rooms.title': 'Nuestras Habitaciones',
   'hostelPage.rooms.subtitle': 'Elige la opción perfecta para tu descanso',
   'hostelPage.rooms.sharedBathroom': 'Todas las habitaciones cuentan con baño compartido.',
+  'hostelPage.rooms.pricePerNight': 'Precio por noche',
+  'hostelPage.rooms.bookButton': 'Lo quiero',
   'hostelPage.rooms.privateOcean.title': 'Privada Vista al Mar',
   'hostelPage.rooms.privateOcean.desc': 'Despierta con la mejor vista de Huanchaco y el sonido de las olas.',
   'hostelPage.rooms.privateOcean.price1': 'S/ 40',

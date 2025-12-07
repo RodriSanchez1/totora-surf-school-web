@@ -114,6 +114,8 @@ export const enUS = {
   'hostelPage.rooms.title': 'Our Rooms',
   'hostelPage.rooms.subtitle': 'Choose the perfect option for your rest',
   'hostelPage.rooms.sharedBathroom': 'All rooms have shared bathrooms.',
+  'hostelPage.rooms.pricePerNight': 'Price per night',
+  'hostelPage.rooms.bookButton': 'Book this room',
   'hostelPage.rooms.privateOcean.title': 'Private Ocean View',
   'hostelPage.rooms.privateOcean.desc': 'Wake up to the best view of Huanchaco and the sound of the waves.',
   'hostelPage.rooms.privateOcean.price1': 'S/ 40',
