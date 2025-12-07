@@ -329,7 +329,7 @@ export const HostelPage: React.FC = () => {
       descId: "hostelPage.rooms.privateBalcony.desc",
       price1Id: "hostelPage.rooms.privateBalcony.price1",
       price2Id: "hostelPage.rooms.privateBalcony.price2",
-      image: "/public/images/hostel/balconyroom5.jpg",
+      image: "/images/hostel/balconyroom5.jpg",
       roomType: "privateBalcony"
     },
     {
@@ -337,7 +337,7 @@ export const HostelPage: React.FC = () => {
       descId: "hostelPage.rooms.privateOcean.desc",
       price1Id: "hostelPage.rooms.privateOcean.price1",
       price2Id: "hostelPage.rooms.privateOcean.price2",
-      image: "/public/images/hostel/searoomview2.jpg",
+      image: "/images/hostel/searoomview2.jpg",
       roomType: "privateOcean"
     },
     {
@@ -345,7 +345,7 @@ export const HostelPage: React.FC = () => {
       descId: "hostelPage.rooms.privateStandard.desc",
       price1Id: "hostelPage.rooms.privateStandard.price1",
       price2Id: "hostelPage.rooms.privateStandard.price2",
-      image: "/public/images/hostel/standardroom4.jpg",
+      image: "/images/hostel/standardroom4.jpg",
       roomType: "privateStandard"
     }
   ];
