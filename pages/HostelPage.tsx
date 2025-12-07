@@ -1,35 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { Wifi, Coffee, Utensils, MapPin, Users, Bed, X, ChevronLeft, ChevronRight, Send, Calendar, User, Mail, Home, MessageSquare } from 'lucide-react';
+import { Wifi, Coffee, Utensils, MapPin, Users, Bed, X, ChevronLeft, ChevronRight, Send, Calendar, User, Home, MessageSquare } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { WaveDivider } from '../components/ui/WaveDivider';
+import { DateInput } from '../components/ui/DateInput';
 import { WHATSAPP_URL } from '../constants';
 
-const BookingForm: React.FC = () => {
+interface BookingFormRef {
+  selectRoom: (roomType: string) => void;
+}
+
+const BookingForm = forwardRef<BookingFormRef>((props, ref) => {
   const intl = useIntl();
+  const locale = intl.locale; // Obtener el idioma actual
+
+  // Calcular fechas por defecto
+  const getDefaultDates = () => {
+    const today = new Date();
+    const checkInDate = today.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+
+    const checkOutDate = new Date(today);
+    checkOutDate.setDate(checkOutDate.getDate() + 2); // 2 días después
+    const checkOutFormatted = checkOutDate.toISOString().split('T')[0];
+
+    return { checkInDate, checkOutFormatted };
+  };
+
+  const { checkInDate, checkOutFormatted } = getDefaultDates();
+
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    dates: '',
+    checkIn: checkInDate,
+    checkOut: checkOutFormatted,
     roomType: 'privateOcean',
     message: ''
   });
 
+  useImperativeHandle(ref, () => ({
+    selectRoom: (roomType: string) => {
+      setFormData(prev => ({ ...prev, roomType }));
+    }
+  }));
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => {
+      const newData = { ...prev, [name]: value };
+
+      // Validar fechas cuando se modifica checkIn o checkOut
+      if (name === 'checkIn' && newData.checkOut && value > newData.checkOut) {
+        // Si checkIn es posterior a checkOut, ajustar checkOut a 2 días después
+        const checkInDate = new Date(value);
+        checkInDate.setDate(checkInDate.getDate() + 2);
+        newData.checkOut = checkInDate.toISOString().split('T')[0];
+      } else if (name === 'checkOut' && newData.checkIn && value < newData.checkIn) {
+        // Si checkOut es anterior a checkIn, ajustar checkOut a 2 días después de checkIn
+        const checkInDate = new Date(newData.checkIn);
+        checkInDate.setDate(checkInDate.getDate() + 2);
+        newData.checkOut = checkInDate.toISOString().split('T')[0];
+      }
+
+      return newData;
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const roomTypeName = intl.formatMessage({ id: `hostelPage.rooms.${formData.roomType}.title` });
-    
+
     const text = `Hola Totora Surf School, estoy interesado en reservar:
-    
+
 *Nombre:* ${formData.name}
-*Email:* ${formData.email}
-*Fechas:* ${formData.dates}
+*Check-in:* ${formData.checkIn}
+*Check-out:* ${formData.checkOut}
 *Habitación:* ${roomTypeName}
 *Mensaje:* ${formData.message}
 
@@ -66,35 +110,36 @@ Vi en la web que hay descuento por reservar directo.`;
           />
         </div>
 
-        <div>
-          <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
-            <Mail size={18} className="text-totora-light" />
-            <FormattedMessage id="hostelPage.form.email" />
-          </label>
-          <input
-            type="email"
-            name="email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all"
-          />
-        </div>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+              <Calendar size={18} className="text-totora-light" />
+              <FormattedMessage id="hostelPage.form.checkIn" />
+            </label>
+            <DateInput
+              name="checkIn"
+              value={formData.checkIn}
+              onChange={(value) => handleChange({ target: { name: 'checkIn', value } } as any)}
+              min={checkInDate}
+              required
+              locale={locale}
+            />
+          </div>
 
-        <div>
-          <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
-            <Calendar size={18} className="text-totora-light" />
-            <FormattedMessage id="hostelPage.form.dates" />
-          </label>
-          <input
-            type="text"
-            name="dates"
-            placeholder="DD/MM/YYYY - DD/MM/YYYY"
-            required
-            value={formData.dates}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all"
-          />
+          <div>
+            <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+              <Calendar size={18} className="text-totora-light" />
+              <FormattedMessage id="hostelPage.form.checkOut" />
+            </label>
+            <DateInput
+              name="checkOut"
+              value={formData.checkOut}
+              onChange={(value) => handleChange({ target: { name: 'checkOut', value } } as any)}
+              min={formData.checkIn}
+              required
+              locale={locale}
+            />
+          </div>
         </div>
 
         <div>
@@ -135,7 +180,7 @@ Vi en la web que hay descuento por reservar directo.`;
       </form>
     </div>
   );
-};
+});
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -240,6 +285,9 @@ const Gallery: React.FC = () => {
 };
 
 export const HostelPage: React.FC = () => {
+  const bookingFormRef = useRef<BookingFormRef>(null);
+  const bookingSectionRef = useRef<HTMLElement>(null);
+
   const amenities = [
     { icon: <Wifi size={24} />, titleId: "hostelPage.amenities.wifi" },
     { icon: <Coffee size={24} />, titleId: "hostelPage.amenities.coffee" },
@@ -254,21 +302,43 @@ export const HostelPage: React.FC = () => {
       titleId: "hostelPage.rooms.privateOcean.title",
       descId: "hostelPage.rooms.privateOcean.desc",
       priceId: "hostelPage.rooms.privateOcean.price",
-      image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop"
+      image: "/public/images/hostel/searoomview2.jpg",
+      roomType: "privateOcean"
     },
     {
       titleId: "hostelPage.rooms.privateBalcony.title",
       descId: "hostelPage.rooms.privateBalcony.desc",
       priceId: "hostelPage.rooms.privateBalcony.price",
-      image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=2071&auto=format&fit=crop"
+      image: "/public/images/hostel/balconyroom5.jpg",
+      roomType: "privateBalcony"
     },
     {
       titleId: "hostelPage.rooms.privateStandard.title",
       descId: "hostelPage.rooms.privateStandard.desc",
       priceId: "hostelPage.rooms.privateStandard.price",
-      image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069&auto=format&fit=crop"
+      image: "/public/images/hostel/standardroom4.jpg",
+      roomType: "privateStandard"
     }
   ];
+
+  const handleSelectRoom = (roomType: string) => {
+    // Seleccionar la habitación en el formulario
+    bookingFormRef.current?.selectRoom(roomType);
+
+    // Hacer scroll al formulario con un pequeño delay para que la selección se complete
+    setTimeout(() => {
+      if (bookingSectionRef.current) {
+        const headerOffset = 50; // Ajusta según la altura del header
+        const elementPosition = bookingSectionRef.current.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
 
   return (
     <main className="flex-grow">
@@ -392,18 +462,29 @@ export const HostelPage: React.FC = () => {
                   <h3 className="text-2xl md:text-4xl font-bold text-totora-dark leading-tight">
                     <FormattedMessage id={room.titleId} />
                   </h3>
-                  
+
                   <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                     <FormattedMessage id={room.descId} />
                   </p>
-                  
-                  <div className="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between">
-                    <div>
-                      <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-0.5">Precio por noche</p>
-                      <div className="text-2xl md:text-3xl font-bold text-totora-light">
-                        <FormattedMessage id={room.priceId} />
+
+                  <div className="pt-4 border-t border-gray-100 mt-4">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-0.5">Precio por noche</p>
+                        <div className="text-2xl md:text-3xl font-bold text-totora-light">
+                          <FormattedMessage id={room.priceId} />
+                        </div>
                       </div>
                     </div>
+
+                    <Button
+                      variant="primary"
+                      fullWidth
+                      onClick={() => handleSelectRoom(room.roomType)}
+                      className="mt-4"
+                    >
+                      Lo quiero
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -416,7 +497,7 @@ export const HostelPage: React.FC = () => {
       <Gallery />
 
       {/* Booking Form Section */}
-      <section className="py-20 bg-totora-dark relative overflow-hidden">
+      <section ref={bookingSectionRef} className="py-20 bg-totora-dark relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src="/images/beachfront.webp" alt="Background" className="w-full h-full object-cover" />
         </div>
@@ -429,30 +510,10 @@ export const HostelPage: React.FC = () => {
               <p className="text-xl text-gray-200 mb-8 leading-relaxed">
                 <FormattedMessage id="hostelPage.cta.subtitle" />
               </p>
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                    <Wifi size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg">High Speed WiFi</h4>
-                    <p className="text-gray-300">Perfect for digital nomads</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                    <Coffee size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg">Free Coffee</h4>
-                    <p className="text-gray-300">Start your day right</p>
-                  </div>
-                </div>
-              </div>
             </div>
-            
+
             <div>
-              <BookingForm />
+              <BookingForm ref={bookingFormRef} />
             </div>
           </div>
         </div>

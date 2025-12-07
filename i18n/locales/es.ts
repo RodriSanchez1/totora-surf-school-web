@@ -124,6 +124,8 @@ export const es = {
   'hostelPage.form.title': 'Consulta Disponibilidad',
   'hostelPage.form.subtitle': '¡Reserva directamente con nosotros y obtén un descuento especial!',
   'hostelPage.form.name': 'Nombre',
+  'hostelPage.form.checkIn': 'Fecha de Entrada',
+  'hostelPage.form.checkOut': 'Fecha de Salida',
   'hostelPage.form.email': 'Email',
   'hostelPage.form.dates': 'Fechas de viaje',
   'hostelPage.form.roomType': 'Tipo de Habitación',

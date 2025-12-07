@@ -130,6 +130,8 @@ export const enUS = {
   'hostelPage.form.title': 'Check Availability',
   'hostelPage.form.subtitle': 'Book directly with us and get a special discount!',
   'hostelPage.form.name': 'Name',
+  'hostelPage.form.checkIn': 'Check-in Date',
+  'hostelPage.form.checkOut': 'Check-out Date',
   'hostelPage.form.email': 'Email',
   'hostelPage.form.dates': 'Travel Dates',
   'hostelPage.form.roomType': 'Room Type',
