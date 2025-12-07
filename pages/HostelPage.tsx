@@ -1,6 +1,6 @@
 import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { Wifi, Coffee, Utensils, MapPin, Users, Bed, X, ChevronLeft, ChevronRight, Send, Calendar, User, Home, MessageSquare } from 'lucide-react';
+import { Wifi, Coffee, Utensils, MapPin, Users, Bed, X, ChevronLeft, ChevronRight, Send, Calendar, User, Home, MessageSquare, UserRound } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { WaveDivider } from '../components/ui/WaveDivider';
 import { DateInput } from '../components/ui/DateInput';
@@ -30,9 +30,10 @@ const BookingForm = forwardRef<BookingFormRef>((props, ref) => {
 
   const [formData, setFormData] = useState({
     name: '',
+    guests: '1',
     checkIn: checkInDate,
     checkOut: checkOutFormatted,
-    roomType: 'privateOcean',
+    roomType: 'privateBalcony',
     message: ''
   });
 
@@ -68,10 +69,13 @@ const BookingForm = forwardRef<BookingFormRef>((props, ref) => {
     e.preventDefault();
 
     const roomTypeName = intl.formatMessage({ id: `hostelPage.rooms.${formData.roomType}.title` });
+    const guestsKey = formData.guests === 'more' ? 'hostelPage.form.guestsMore' : `hostelPage.form.guests${formData.guests}`;
+    const guestsText = intl.formatMessage({ id: guestsKey });
 
     const text = `Hola Totora Surf School, estoy interesado en reservar:
 
 *Nombre:* ${formData.name}
+*Huéspedes:* ${guestsText}
 *Check-in:* ${formData.checkIn}
 *Check-out:* ${formData.checkOut}
 *Habitación:* ${roomTypeName}
@@ -95,19 +99,41 @@ Vi en la web que hay descuento por reservar directo.`;
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
-            <User size={18} className="text-totora-light" />
-            <FormattedMessage id="hostelPage.form.name" />
-          </label>
-          <input
-            type="text"
-            name="name"
-            required
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all"
-          />
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+              <User size={18} className="text-totora-light" />
+              <FormattedMessage id="hostelPage.form.name" />
+            </label>
+            <input
+              type="text"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+              <Users size={18} className="text-totora-light" />
+              <FormattedMessage id="hostelPage.form.guests" />
+            </label>
+            <select
+              name="guests"
+              value={formData.guests}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all bg-white"
+            >
+              <option value="1">{intl.formatMessage({ id: 'hostelPage.form.guests1' })}</option>
+              <option value="2">{intl.formatMessage({ id: 'hostelPage.form.guests2' })}</option>
+              <option value="3">{intl.formatMessage({ id: 'hostelPage.form.guests3' })}</option>
+              <option value="4">{intl.formatMessage({ id: 'hostelPage.form.guests4' })}</option>
+              <option value="5">{intl.formatMessage({ id: 'hostelPage.form.guests5' })}</option>
+              <option value="more">{intl.formatMessage({ id: 'hostelPage.form.guestsMore' })}</option>
+            </select>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -153,8 +179,8 @@ Vi en la web que hay descuento por reservar directo.`;
             onChange={handleChange}
             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-totora-light focus:border-transparent outline-none transition-all bg-white"
           >
-            <option value="privateOcean">{intl.formatMessage({ id: 'hostelPage.rooms.privateOcean.title' })}</option>
             <option value="privateBalcony">{intl.formatMessage({ id: 'hostelPage.rooms.privateBalcony.title' })}</option>
+            <option value="privateOcean">{intl.formatMessage({ id: 'hostelPage.rooms.privateOcean.title' })}</option>
             <option value="privateStandard">{intl.formatMessage({ id: 'hostelPage.rooms.privateStandard.title' })}</option>
           </select>
         </div>
@@ -299,23 +325,26 @@ export const HostelPage: React.FC = () => {
 
   const roomTypes = [
     {
-      titleId: "hostelPage.rooms.privateOcean.title",
-      descId: "hostelPage.rooms.privateOcean.desc",
-      priceId: "hostelPage.rooms.privateOcean.price",
-      image: "/public/images/hostel/searoomview2.jpg",
-      roomType: "privateOcean"
-    },
-    {
       titleId: "hostelPage.rooms.privateBalcony.title",
       descId: "hostelPage.rooms.privateBalcony.desc",
-      priceId: "hostelPage.rooms.privateBalcony.price",
+      price1Id: "hostelPage.rooms.privateBalcony.price1",
+      price2Id: "hostelPage.rooms.privateBalcony.price2",
       image: "/public/images/hostel/balconyroom5.jpg",
       roomType: "privateBalcony"
     },
     {
+      titleId: "hostelPage.rooms.privateOcean.title",
+      descId: "hostelPage.rooms.privateOcean.desc",
+      price1Id: "hostelPage.rooms.privateOcean.price1",
+      price2Id: "hostelPage.rooms.privateOcean.price2",
+      image: "/public/images/hostel/searoomview2.jpg",
+      roomType: "privateOcean"
+    },
+    {
       titleId: "hostelPage.rooms.privateStandard.title",
       descId: "hostelPage.rooms.privateStandard.desc",
-      priceId: "hostelPage.rooms.privateStandard.price",
+      price1Id: "hostelPage.rooms.privateStandard.price1",
+      price2Id: "hostelPage.rooms.privateStandard.price2",
       image: "/public/images/hostel/standardroom4.jpg",
       roomType: "privateStandard"
     }
@@ -468,11 +497,24 @@ export const HostelPage: React.FC = () => {
                   </p>
 
                   <div className="pt-4 border-t border-gray-100 mt-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-0.5">Precio por noche</p>
-                        <div className="text-2xl md:text-3xl font-bold text-totora-light">
-                          <FormattedMessage id={room.priceId} />
+                    <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-3">Precio por noche</p>
+
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-totora-light/10 rounded-full flex items-center justify-center">
+                          <UserRound size={16} className="text-totora-dark" />
+                        </div>
+                        <div className="text-2xl font-bold text-totora-light">
+                          <FormattedMessage id={room.price1Id} />
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-totora-light/10 rounded-full flex items-center justify-center">
+                          <Users size={16} className="text-totora-dark" />
+                        </div>
+                        <div className="text-2xl font-bold text-totora-light">
+                          <FormattedMessage id={room.price2Id} />
                         </div>
                       </div>
                     </div>
