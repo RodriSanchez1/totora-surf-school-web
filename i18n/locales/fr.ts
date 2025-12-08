@@ -221,6 +221,17 @@ export const fr = {
   'surfSchoolPage.levels.bestValue': 'Meilleur Rapport Qualité-Prix',
   'surfSchoolPage.levels.bookButton': 'Réserver Maintenant',
 
+  // Booking Modal
+  'booking.modal.title': 'Configurez Votre Réservation',
+  'booking.modal.selectPackage': 'Sélectionnez Votre Forfait',
+  'booking.modal.singleClass': 'Cours Individuel',
+  'booking.modal.classes': 'Cours',
+  'booking.modal.bestValue': 'Meilleur Rapport Qualité-Prix',
+  'booking.modal.addExtras': 'Ajouter des Services Supplémentaires (Optionnel)',
+  'booking.modal.perSession': 'Par session',
+  'booking.modal.note': 'Les prix finaux seront confirmés par WhatsApp. Les instructeurs vous aideront à choisir la meilleure option pour votre niveau.',
+  'booking.modal.sendToWhatsApp': 'Envoyer une Demande par WhatsApp',
+
   'surfSchoolPage.videoServices.title': 'Vidéos et Analyse de Surf',
   'surfSchoolPage.videoServices.subtitle': 'Améliorez votre technique avec la technologie professionnelle',
   'surfSchoolPage.videoServices.camera.title': 'Caméra Haute Qualité',

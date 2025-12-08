@@ -220,6 +220,17 @@ export const ptBR = {
   'surfSchoolPage.levels.bestValue': 'Melhor Valor',
   'surfSchoolPage.levels.bookButton': 'Reservar Agora',
 
+  // Booking Modal
+  'booking.modal.title': 'Configure Sua Reserva',
+  'booking.modal.selectPackage': 'Selecione Seu Pacote',
+  'booking.modal.singleClass': 'Aula Individual',
+  'booking.modal.classes': 'Aulas',
+  'booking.modal.bestValue': 'Melhor Valor',
+  'booking.modal.addExtras': 'Adicionar Serviços Extras (Opcional)',
+  'booking.modal.perSession': 'Por sessão',
+  'booking.modal.note': 'Os preços finais serão confirmados pelo WhatsApp. Os instrutores ajudarão você a escolher a melhor opção para o seu nível.',
+  'booking.modal.sendToWhatsApp': 'Enviar Consulta pelo WhatsApp',
+
   'surfSchoolPage.videoServices.title': 'Vídeos e Análise de Surf',
   'surfSchoolPage.videoServices.subtitle': 'Melhore sua técnica com tecnologia profissional',
   'surfSchoolPage.videoServices.camera.title': 'Câmera de Alta Qualidade',

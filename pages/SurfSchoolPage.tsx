@@ -8,10 +8,13 @@ import { SurfTripCard } from '../components/ui/SurfTripCard';
 import { EquipmentCard } from '../components/ui/EquipmentCard';
 import { VideoServiceCard } from '../components/ui/VideoServiceCard';
 import { VideoBackground } from '../components/ui/VideoBackground';
+import { BookingModal } from '../components/ui/BookingModal';
 import { WHATSAPP_URL } from '../constants';
 
 export const SurfSchoolPage: React.FC = () => {
   const [expandedPackages, setExpandedPackages] = useState<number | null>(null);
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [selectedLevel, setSelectedLevel] = useState<typeof levels[0] | null>(null);
 
   const features = [
     { icon: <Users size={24} />, titleId: "surfSchoolPage.features.instructors" },
@@ -348,7 +351,14 @@ export const SurfSchoolPage: React.FC = () => {
                   <div className="flex-1"></div>
 
                   {/* CTA Button */}
-                  <Button href={WHATSAPP_URL} variant="primary" fullWidth>
+                  <Button
+                    variant="primary"
+                    fullWidth
+                    onClick={() => {
+                      setSelectedLevel(level);
+                      setBookingModalOpen(true);
+                    }}
+                  >
                     <FormattedMessage id="surfSchoolPage.levels.bookButton" />
                   </Button>
                 </div>
@@ -529,6 +539,25 @@ export const SurfSchoolPage: React.FC = () => {
           </Button>
         </div>
       </section>
+
+      {/* Booking Modal */}
+      {selectedLevel && (
+        <BookingModal
+          isOpen={bookingModalOpen}
+          onClose={() => setBookingModalOpen(false)}
+          levelId={selectedLevel.id}
+          levelTitleId={selectedLevel.titleId}
+          hasMediaOptional={selectedLevel.hasMediaOptional}
+          hasVideoIncluded={selectedLevel.hasVideoIncluded}
+          hasAnalysisOptional={selectedLevel.hasAnalysisOptional}
+          hasAnalysisIncluded={selectedLevel.hasAnalysisIncluded}
+          packages={getPackagesForLevel(selectedLevel.id)}
+          singleClassPriceId={selectedLevel.priceId}
+          optionalMediaPriceId={selectedLevel.hasMediaOptional ? `surfSchoolPage.levels.${selectedLevel.id}.optionalMediaPrice` : undefined}
+          optionalAnalysisPriceId={selectedLevel.hasAnalysisOptional ? `surfSchoolPage.levels.${selectedLevel.id}.optionalAnalysisPrice` : undefined}
+          whatsappUrl={WHATSAPP_URL}
+        />
+      )}
     </main>
   );
 };

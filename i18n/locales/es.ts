@@ -259,6 +259,17 @@ export const es = {
   'surfSchoolPage.levels.save': 'Ahorra {discount}%',
   'surfSchoolPage.levels.bestValue': 'Mejor Valor',
   'surfSchoolPage.levels.bookButton': 'Reservar Ahora',
+
+  // Booking Modal
+  'booking.modal.title': 'Configura Tu Reserva',
+  'booking.modal.selectPackage': 'Selecciona Tu Paquete',
+  'booking.modal.singleClass': 'Clase Individual',
+  'booking.modal.classes': 'Clases',
+  'booking.modal.bestValue': 'Mejor Valor',
+  'booking.modal.addExtras': 'Agregar Servicios Extra (Opcional)',
+  'booking.modal.perSession': 'Por sesión',
+  'booking.modal.note': 'Los precios finales serán confirmados por WhatsApp. Los instructores te ayudarán a elegir la mejor opción para tu nivel.',
+  'booking.modal.sendToWhatsApp': 'Enviar Consulta por WhatsApp',
   'surfSchoolPage.totora.title': 'Experiencia <highlight>Caballito de Totora</highlight>',
   'surfSchoolPage.totora.p1': 'Huanchaco es mundialmente conocido como la cuna del caballito de totora, la embarcación ancestral utilizada por pescadores peruanos durante más de 3,000 años. Estas balsas de totora son consideradas el origen del surf moderno.',
   'surfSchoolPage.totora.p2': 'Ofrecemos experiencias únicas donde puedes aprender a remar y surfear en un auténtico caballito de totora, conectándote con siglos de tradición y cultura.',

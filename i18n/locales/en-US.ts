@@ -266,6 +266,17 @@ export const enUS = {
   'surfSchoolPage.levels.save': 'Save {discount}%',
   'surfSchoolPage.levels.bestValue': 'Best Value',
   'surfSchoolPage.levels.bookButton': 'Book Now',
+
+  // Booking Modal
+  'booking.modal.title': 'Configure Your Booking',
+  'booking.modal.selectPackage': 'Select Your Package',
+  'booking.modal.singleClass': 'Single Class',
+  'booking.modal.classes': 'Classes',
+  'booking.modal.bestValue': 'Best Value',
+  'booking.modal.addExtras': 'Add Extra Services (Optional)',
+  'booking.modal.perSession': 'Per session',
+  'booking.modal.note': 'Final prices will be confirmed by WhatsApp. The instructors will help you choose the best option for your level.',
+  'booking.modal.sendToWhatsApp': 'Send Inquiry via WhatsApp',
   'surfSchoolPage.totora.title': '<highlight>Caballito de Totora</highlight> Experience',
   'surfSchoolPage.totora.p1': 'Huanchaco is world-renowned as the birthplace of the caballito de totora, the ancestral craft used by Peruvian fishermen for over 3,000 years. These totora reed rafts are considered the origin of modern surfing.',
   'surfSchoolPage.totora.p2': 'We offer unique experiences where you can learn to paddle and surf on an authentic caballito de totora, connecting with centuries of tradition and culture.',
