@@ -126,43 +126,97 @@ export const fr = {
   'surfSchoolPage.levels.title': 'Cours pour Tous les Niveaux',
   'surfSchoolPage.levels.subtitle': 'Trouvez le programme parfait pour vous',
   'surfSchoolPage.levels.beginner.title': 'Débutant',
-  'surfSchoolPage.levels.beginner.desc': 'Apprenez les fondamentaux du surf : sécurité, technique de rame, comment se lever sur la planche et attraper vos premières vagues. Comprend théorie sur la plage et pratique dans l\'eau.',
+  'surfSchoolPage.levels.beginner.desc': 'Cours amusant pour votre première ou premières approches du surf. 30 minutes de théorie sur la plage sur la sécurité et la technique de base, plus 1 heure dans l\'eau avec l\'instructeur pour apprendre à se tenir debout sur la planche et attraper vos premières vagues.',
   'surfSchoolPage.levels.beginner.duration': '1:30 heures',
+  'surfSchoolPage.levels.beginner.price': '100 soles',
+  'surfSchoolPage.levels.beginner.included1': 'Combinaison et planche',
+  'surfSchoolPage.levels.beginner.included2': 'Instructeur qualifié',
+  'surfSchoolPage.levels.beginner.included3': 'Douche, serviette, casiers et crème solaire',
+  'surfSchoolPage.levels.beginner.included4': 'Utilisation libre de la planche et de la combinaison le jour du cours',
   'surfSchoolPage.levels.intermediate.title': 'Intermédiaire',
-  'surfSchoolPage.levels.intermediate.desc': 'Améliorez votre technique de bottom turn, cutback et lecture des vagues. Apprenez à surfer de plus grandes vagues et perfectionnez votre style.',
+  'surfSchoolPage.levels.intermediate.desc': 'Cours de 1:30 heure qui comprend un échauffement axé sur le surf. Dans l\'eau, vous recevrez des conseils personnalisés sur le positionnement, comment choisir la bonne vague et améliorer la technique de bottom turn et cutback. Vidéos de session incluses.',
   'surfSchoolPage.levels.intermediate.duration': '1:30 heures',
+  'surfSchoolPage.levels.intermediate.price': '120 soles',
+  'surfSchoolPage.levels.intermediate.included1': 'Combinaison et planche',
+  'surfSchoolPage.levels.intermediate.included2': 'Instructeur Diego Venegas',
+  'surfSchoolPage.levels.intermediate.included3': 'Douche, serviette, casiers et crème solaire',
+  'surfSchoolPage.levels.intermediate.included4': 'Utilisation libre de la planche et de la combinaison le jour du cours',
+  'surfSchoolPage.levels.intermediate.included5': 'Filmage de toute la session',
   'surfSchoolPage.levels.advanced.title': 'Avancé',
-  'surfSchoolPage.levels.advanced.desc': 'Entraînement spécialisé pour manœuvres avancées, tube riding et préparation aux compétitions. Comprend analyse vidéo détaillée.',
+  'surfSchoolPage.levels.advanced.desc': 'Session de filmage professionnel de 1:30 heure avec caméra haute qualité. Comprend des conseils pré et post surf pour améliorer vos manœuvres, positionnement dans l\'eau, timing et lecture des vagues. Analyse vidéo complète et suivi des progrès inclus.',
   'surfSchoolPage.levels.advanced.duration': '1:30 heures',
+  'surfSchoolPage.levels.advanced.price': '150 soles',
+  'surfSchoolPage.levels.advanced.included1': 'Douche, serviette, casiers et crème solaire',
+  'surfSchoolPage.levels.advanced.included2': 'Filmage haute qualité de toute la session',
+  'surfSchoolPage.levels.advanced.included3': 'Analyse de surf de toutes les vagues',
 
   // Pricing
   'surfSchoolPage.levels.basePrice': '100 soles',
   'surfSchoolPage.levels.perClass': 'par cours',
 
+  // What's Included
+  'surfSchoolPage.levels.whatsIncluded': 'Qu\'est-ce qui est inclus ?',
+
   // Optional Add-ons
   'surfSchoolPage.levels.optional': 'Options Supplémentaires',
-  'surfSchoolPage.levels.optionalPhotos': 'Photos de votre session',
-  'surfSchoolPage.levels.optionalPhotosPrice': '+15 soles',
-  'surfSchoolPage.levels.optionalVideos': 'Vidéo de votre session',
-  'surfSchoolPage.levels.optionalVideosPrice': '+40 soles',
 
-  // Video analysis badge
-  'surfSchoolPage.levels.videoAnalysisBadge': 'Inclut analyse technique de vague',
-  'surfSchoolPage.levels.videoAnalysisDesc': 'L\'instructeur vous accompagne, filme toute votre vague puis analyse votre technique',
+  // Beginner Optionals
+  'surfSchoolPage.levels.beginner.optionalMedia': 'Photos ou vidéos de votre session',
+  'surfSchoolPage.levels.beginner.optionalMediaPrice': '+20 soles',
+
+  // Intermediate Optionals and Included
+  'surfSchoolPage.levels.intermediate.videosIncluded': 'Vidéos basiques incluses',
+  'surfSchoolPage.levels.intermediate.videosIncludedDesc': 'Enregistrement de votre session pour les souvenirs',
+  'surfSchoolPage.levels.intermediate.optionalAnalysis': 'Analyse vidéo technique',
+  'surfSchoolPage.levels.intermediate.optionalAnalysisPrice': '+30 soles',
+  'surfSchoolPage.levels.intermediate.optionalAnalysisDesc': 'Correction de posture, mouvement sur la vague, technique',
+
+  // Advanced Included
+  'surfSchoolPage.levels.advanced.analysisIncluded': 'Analyse vidéo incluse',
+  'surfSchoolPage.levels.advanced.analysisIncludedDesc': 'Suivi complet des progrès avec l\'instructeur',
+
+  // Drone Optional (for all levels)
+  'surfSchoolPage.levels.optionalDrone': 'Vidéo par drone de votre session',
+  'surfSchoolPage.levels.optionalDronePrice': '+150 soles',
 
   // Packages
   'surfSchoolPage.levels.packages': 'Forfaits avec Réduction',
   'surfSchoolPage.levels.viewPackages': 'Voir les Forfaits',
   'surfSchoolPage.levels.hidePackages': 'Masquer les Forfaits',
-  'surfSchoolPage.levels.package5': '5 cours',
-  'surfSchoolPage.levels.package5Price': '450 soles',
-  'surfSchoolPage.levels.package5PerClass': '90 soles/cours',
-  'surfSchoolPage.levels.package10': '10 cours',
-  'surfSchoolPage.levels.package10Price': '850 soles',
-  'surfSchoolPage.levels.package10PerClass': '85 soles/cours',
-  'surfSchoolPage.levels.package15': '15 cours',
-  'surfSchoolPage.levels.package15Price': '1,200 soles',
-  'surfSchoolPage.levels.package15PerClass': '80 soles/cours',
+
+  // Beginner Packages
+  'surfSchoolPage.levels.beginner.package5': '5 cours',
+  'surfSchoolPage.levels.beginner.package5Price': '450 soles',
+  'surfSchoolPage.levels.beginner.package5PerClass': '90 soles/cours',
+  'surfSchoolPage.levels.beginner.package10': '10 cours',
+  'surfSchoolPage.levels.beginner.package10Price': '850 soles',
+  'surfSchoolPage.levels.beginner.package10PerClass': '85 soles/cours',
+  'surfSchoolPage.levels.beginner.package15': '15 cours',
+  'surfSchoolPage.levels.beginner.package15Price': '1,200 soles',
+  'surfSchoolPage.levels.beginner.package15PerClass': '80 soles/cours',
+
+  // Intermediate Packages
+  'surfSchoolPage.levels.intermediate.package5': '5 cours',
+  'surfSchoolPage.levels.intermediate.package5Price': '540 soles',
+  'surfSchoolPage.levels.intermediate.package5PerClass': '108 soles/cours',
+  'surfSchoolPage.levels.intermediate.package10': '10 cours',
+  'surfSchoolPage.levels.intermediate.package10Price': '1,020 soles',
+  'surfSchoolPage.levels.intermediate.package10PerClass': '102 soles/cours',
+  'surfSchoolPage.levels.intermediate.package15': '15 cours',
+  'surfSchoolPage.levels.intermediate.package15Price': '1,440 soles',
+  'surfSchoolPage.levels.intermediate.package15PerClass': '96 soles/cours',
+
+  // Advanced Packages
+  'surfSchoolPage.levels.advanced.package5': '5 cours',
+  'surfSchoolPage.levels.advanced.package5Price': '675 soles',
+  'surfSchoolPage.levels.advanced.package5PerClass': '135 soles/cours',
+  'surfSchoolPage.levels.advanced.package10': '10 cours',
+  'surfSchoolPage.levels.advanced.package10Price': '1,275 soles',
+  'surfSchoolPage.levels.advanced.package10PerClass': '127.50 soles/cours',
+  'surfSchoolPage.levels.advanced.package15': '15 cours',
+  'surfSchoolPage.levels.advanced.package15Price': '1,800 soles',
+  'surfSchoolPage.levels.advanced.package15PerClass': '120 soles/cours',
+
   'surfSchoolPage.levels.save': 'Économisez {discount}%',
   'surfSchoolPage.levels.bestValue': 'Meilleur Rapport Qualité-Prix',
   'surfSchoolPage.levels.bookButton': 'Réserver Maintenant',

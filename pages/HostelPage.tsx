@@ -440,7 +440,7 @@ export const HostelPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {amenities.map((amenity, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-lg flex items-start space-x-4">
+              <div key={index} className="bg-white rounded-xl p-6 shadow-lg flex items-center space-x-4">
                 <div className="w-12 h-12 bg-totora-light/10 rounded-full flex items-center justify-center text-totora-dark flex-shrink-0">
                   {amenity.icon}
                 </div>

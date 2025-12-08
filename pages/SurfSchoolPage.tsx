@@ -28,32 +28,73 @@ export const SurfSchoolPage: React.FC = () => {
       titleId: "surfSchoolPage.levels.beginner.title",
       descId: "surfSchoolPage.levels.beginner.desc",
       durationId: "surfSchoolPage.levels.beginner.duration",
+      priceId: "surfSchoolPage.levels.beginner.price",
       image: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=2070&auto=format&fit=crop",
-      hasVideoAnalysis: false
+      hasPackages: true,
+      hasMediaOptional: true,
+      hasVideoIncluded: false,
+      hasAnalysisOptional: false,
+      hasAnalysisIncluded: false
     },
     {
       id: 'intermediate',
       titleId: "surfSchoolPage.levels.intermediate.title",
       descId: "surfSchoolPage.levels.intermediate.desc",
       durationId: "surfSchoolPage.levels.intermediate.duration",
+      priceId: "surfSchoolPage.levels.intermediate.price",
       image: "https://images.unsplash.com/photo-1502933691298-84fc14542831?q=80&w=2070&auto=format&fit=crop",
-      hasVideoAnalysis: true
+      hasPackages: true,
+      hasMediaOptional: false,
+      hasVideoIncluded: true,
+      hasAnalysisOptional: true,
+      hasAnalysisIncluded: false
     },
     {
       id: 'advanced',
       titleId: "surfSchoolPage.levels.advanced.title",
       descId: "surfSchoolPage.levels.advanced.desc",
       durationId: "surfSchoolPage.levels.advanced.duration",
+      priceId: "surfSchoolPage.levels.advanced.price",
       image: "https://images.unsplash.com/photo-1459976893341-c0e8f3c8e5c4?q=80&w=2070&auto=format&fit=crop",
-      hasVideoAnalysis: true
+      hasPackages: true,
+      hasMediaOptional: false,
+      hasVideoIncluded: false,
+      hasAnalysisOptional: false,
+      hasAnalysisIncluded: true
     }
   ];
 
-  const packages = [
-    { classes: 5, priceId: 'surfSchoolPage.levels.package5Price', perClassId: 'surfSchoolPage.levels.package5PerClass', discount: 10 },
-    { classes: 10, priceId: 'surfSchoolPage.levels.package10Price', perClassId: 'surfSchoolPage.levels.package10PerClass', discount: 15, isBestValue: true },
-    { classes: 15, priceId: 'surfSchoolPage.levels.package15Price', perClassId: 'surfSchoolPage.levels.package15PerClass', discount: 20 }
-  ];
+  // Included features count by level
+  const getIncludedFeaturesCount = (levelId: string) => {
+    if (levelId === 'beginner') return 4;
+    if (levelId === 'intermediate') return 5;
+    if (levelId === 'advanced') return 3;
+    return 0;
+  };
+
+  // Packages by level
+  const getPackagesForLevel = (levelId: string) => {
+    if (levelId === 'beginner') {
+      return [
+        { classes: 5, priceId: 'surfSchoolPage.levels.beginner.package5Price', perClassId: 'surfSchoolPage.levels.beginner.package5PerClass', discount: 10 },
+        { classes: 10, priceId: 'surfSchoolPage.levels.beginner.package10Price', perClassId: 'surfSchoolPage.levels.beginner.package10PerClass', discount: 15, isBestValue: true },
+        { classes: 15, priceId: 'surfSchoolPage.levels.beginner.package15Price', perClassId: 'surfSchoolPage.levels.beginner.package15PerClass', discount: 20 }
+      ];
+    } else if (levelId === 'intermediate') {
+      return [
+        { classes: 5, priceId: 'surfSchoolPage.levels.intermediate.package5Price', perClassId: 'surfSchoolPage.levels.intermediate.package5PerClass', discount: 10 },
+        { classes: 10, priceId: 'surfSchoolPage.levels.intermediate.package10Price', perClassId: 'surfSchoolPage.levels.intermediate.package10PerClass', discount: 15, isBestValue: true },
+        { classes: 15, priceId: 'surfSchoolPage.levels.intermediate.package15Price', perClassId: 'surfSchoolPage.levels.intermediate.package15PerClass', discount: 20 }
+      ];
+    } else if (levelId === 'advanced') {
+      return [
+        { classes: 5, priceId: 'surfSchoolPage.levels.advanced.package5Price', perClassId: 'surfSchoolPage.levels.advanced.package5PerClass', discount: 10 },
+        { classes: 10, priceId: 'surfSchoolPage.levels.advanced.package10Price', perClassId: 'surfSchoolPage.levels.advanced.package10PerClass', discount: 15, isBestValue: true },
+        { classes: 15, priceId: 'surfSchoolPage.levels.advanced.package15Price', perClassId: 'surfSchoolPage.levels.advanced.package15PerClass', discount: 20 }
+      ];
+    }
+    return [];
+  };
 
   return (
     <main className="flex-grow">
@@ -127,7 +168,7 @@ export const SurfSchoolPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow flex items-start space-x-4">
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow flex items-center space-x-4">
                 <div className="w-12 h-12 bg-totora-light/10 rounded-full flex items-center justify-center text-totora-dark flex-shrink-0">
                   {feature.icon}
                 </div>
@@ -154,9 +195,9 @@ export const SurfSchoolPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {levels.map((level, index) => (
-              <div key={level.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div key={level.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full">
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
                   <img
@@ -176,112 +217,140 @@ export const SurfSchoolPage: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  {/* Description */}
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                <div className="p-6 flex flex-col flex-1">
+                  {/* Description - Variable height */}
+                  <p className="text-gray-600 mb-4 leading-relaxed min-h-[120px]">
                     <FormattedMessage id={level.descId} />
                   </p>
 
-                  {/* Base Price */}
-                  <div className="mb-4 text-center py-4 bg-totora-cream/50 rounded-lg">
+                  {/* Base Price - Fixed height */}
+                  <div className="mb-4 text-center py-4 bg-totora-cream/50 rounded-lg h-[88px] flex flex-col justify-center">
                     <div className="text-3xl font-bold text-totora-dark">
-                      <FormattedMessage id="surfSchoolPage.levels.basePrice" />
+                      <FormattedMessage id={level.priceId} />
                     </div>
                     <div className="text-sm text-gray-600">
                       <FormattedMessage id="surfSchoolPage.levels.perClass" />
                     </div>
                   </div>
 
-                  {/* Optional Add-ons */}
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-totora-dark mb-2">
+                  {/* What's Included Section - Variable height with min */}
+                  <div className="mb-4 p-4 bg-white rounded-lg border-2 border-totora-light/20 min-h-[200px]">
+                    <h4 className="text-sm font-bold text-totora-dark mb-3 uppercase tracking-wide">
+                      <FormattedMessage id="surfSchoolPage.levels.whatsIncluded" />
+                    </h4>
+                    <ul className="space-y-2">
+                      {Array.from({ length: getIncludedFeaturesCount(level.id) }).map((_, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check size={18} className="text-totora-light mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-gray-700">
+                            <FormattedMessage id={`surfSchoolPage.levels.${level.id}.included${i + 1}`} />
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Optional Add-ons - Fixed height */}
+                  <div className="mb-6 min-h-[160px]">
+                    <h4 className="text-sm font-semibold text-totora-dark mb-3">
                       <FormattedMessage id="surfSchoolPage.levels.optional" />
                     </h4>
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between bg-gray-50 rounded-lg p-2">
-                        <div className="flex items-center gap-2">
-                          <Camera size={16} className="text-totora-dark" />
-                          <span className="text-sm text-gray-700">
-                            <FormattedMessage id="surfSchoolPage.levels.optionalPhotos" />
-                          </span>
-                        </div>
-                        <span className="text-sm font-semibold text-totora-dark">
-                          <FormattedMessage id="surfSchoolPage.levels.optionalPhotosPrice" />
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between bg-gray-50 rounded-lg p-2">
-                        <div className="flex items-center gap-2">
-                          <Video size={16} className="text-totora-dark" />
-                          <span className="text-sm text-gray-700">
-                            <FormattedMessage id="surfSchoolPage.levels.optionalVideos" />
-                          </span>
-                        </div>
-                        <span className="text-sm font-semibold text-totora-dark">
-                          <FormattedMessage id="surfSchoolPage.levels.optionalVideosPrice" />
-                        </span>
-                      </div>
-                      {/* Video Analysis Badge for Intermediate/Advanced */}
-                      {level.hasVideoAnalysis && (
-                        <div className="flex items-start gap-2 bg-totora-light/10 rounded-lg p-2 border border-totora-light/20">
-                          <Sparkles size={16} className="text-totora-light mt-0.5 flex-shrink-0" />
-                          <div className="flex-1">
-                            <div className="text-sm font-semibold text-totora-light">
-                              <FormattedMessage id="surfSchoolPage.levels.videoAnalysisBadge" />
-                            </div>
-                            <div className="text-xs text-gray-600 mt-0.5">
-                              <FormattedMessage id="surfSchoolPage.levels.videoAnalysisDesc" />
-                            </div>
+                      {/* Media Optional for Beginner */}
+                      {level.hasMediaOptional && (
+                        <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                          <div className="flex items-center gap-2">
+                            <Camera size={16} className="text-totora-dark" />
+                            <span className="text-sm text-gray-700">
+                              <FormattedMessage id={`surfSchoolPage.levels.${level.id}.optionalMedia`} />
+                            </span>
                           </div>
+                          <span className="text-sm font-semibold text-totora-dark">
+                            <FormattedMessage id={`surfSchoolPage.levels.${level.id}.optionalMediaPrice`} />
+                          </span>
                         </div>
                       )}
+
+                      {/* Analysis Optional for Intermediate */}
+                      {level.hasAnalysisOptional && (
+                        <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                          <div className="flex items-center gap-2">
+                            <LineChart size={16} className="text-totora-dark" />
+                            <span className="text-sm text-gray-700">
+                              <FormattedMessage id={`surfSchoolPage.levels.${level.id}.optionalAnalysis`} />
+                            </span>
+                          </div>
+                          <span className="text-sm font-semibold text-totora-dark">
+                            <FormattedMessage id={`surfSchoolPage.levels.${level.id}.optionalAnalysisPrice`} />
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Drone Optional - for ALL levels */}
+                      <div className="flex items-center justify-between bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-3 border border-blue-200">
+                        <div className="flex items-center gap-2">
+                          <Drone size={16} className="text-blue-600" />
+                          <span className="text-sm text-gray-700 font-medium">
+                            <FormattedMessage id="surfSchoolPage.levels.optionalDrone" />
+                          </span>
+                        </div>
+                        <span className="text-sm font-bold text-blue-600">
+                          <FormattedMessage id="surfSchoolPage.levels.optionalDronePrice" />
+                        </span>
+                      </div>
                     </div>
                   </div>
 
                   {/* Packages Accordion */}
-                  <div className="mb-4">
-                    <button
-                      onClick={() => setExpandedPackages(expandedPackages === index ? null : index)}
-                      className="flex items-center justify-between w-full bg-totora-cream/50 rounded-lg p-3 hover:bg-totora-cream transition-colors"
-                    >
-                      <span className="font-semibold text-totora-dark text-sm">
-                        <FormattedMessage id="surfSchoolPage.levels.viewPackages" />
-                      </span>
-                      <ChevronDown
-                        size={20}
-                        className={`transition-transform text-totora-dark ${expandedPackages === index ? 'rotate-180' : ''}`}
-                      />
-                    </button>
+                  {level.hasPackages && (
+                    <div className="mb-6">
+                      <button
+                        onClick={() => setExpandedPackages(expandedPackages === index ? null : index)}
+                        className="flex items-center justify-between w-full bg-totora-cream/50 rounded-lg p-3 hover:bg-totora-cream transition-colors"
+                      >
+                        <span className="font-semibold text-totora-dark text-sm">
+                          <FormattedMessage id="surfSchoolPage.levels.viewPackages" />
+                        </span>
+                        <ChevronDown
+                          size={20}
+                          className={`transition-transform text-totora-dark ${expandedPackages === index ? 'rotate-180' : ''}`}
+                        />
+                      </button>
 
-                    {expandedPackages === index && (
-                      <div className="space-y-2 mt-3">
-                        {packages.map((pkg) => (
-                          <div key={pkg.classes} className="flex items-center justify-between bg-white rounded-lg p-3 border-2 border-totora-light/20 hover:border-totora-light/40 transition-colors">
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2 flex-wrap">
-                                <span className="font-bold text-totora-dark text-sm">
-                                  <FormattedMessage id={`surfSchoolPage.levels.package${pkg.classes}`} />
-                                </span>
-                                {pkg.isBestValue && (
-                                  <span className="bg-totora-yellow text-totora-dark text-xs px-2 py-0.5 rounded-full font-semibold">
-                                    <FormattedMessage id="surfSchoolPage.levels.bestValue" />
+                      {expandedPackages === index && (
+                        <div className="space-y-2 mt-3">
+                          {getPackagesForLevel(level.id).map((pkg) => (
+                            <div key={pkg.classes} className="flex items-center justify-between bg-white rounded-lg p-3 border-2 border-totora-light/20 hover:border-totora-light/40 transition-colors">
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 flex-wrap">
+                                  <span className="font-bold text-totora-dark text-sm">
+                                    <FormattedMessage id={`surfSchoolPage.levels.${level.id}.package${pkg.classes}`} />
                                   </span>
-                                )}
-                                <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-semibold">
-                                  <FormattedMessage id="surfSchoolPage.levels.save" values={{ discount: pkg.discount }} />
+                                  {pkg.isBestValue && (
+                                    <span className="bg-totora-yellow text-totora-dark text-xs px-2 py-0.5 rounded-full font-semibold">
+                                      <FormattedMessage id="surfSchoolPage.levels.bestValue" />
+                                    </span>
+                                  )}
+                                  <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-semibold">
+                                    <FormattedMessage id="surfSchoolPage.levels.save" values={{ discount: pkg.discount }} />
+                                  </span>
+                                </div>
+                                <span className="text-xs text-gray-600">
+                                  <FormattedMessage id={pkg.perClassId} />
                                 </span>
                               </div>
-                              <span className="text-xs text-gray-600">
-                                <FormattedMessage id={pkg.perClassId} />
+                              <span className="text-lg font-bold text-totora-light ml-2">
+                                <FormattedMessage id={pkg.priceId} />
                               </span>
                             </div>
-                            <span className="text-lg font-bold text-totora-light ml-2">
-                              <FormattedMessage id={pkg.priceId} />
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Spacer to push button to bottom */}
+                  <div className="flex-1"></div>
 
                   {/* CTA Button */}
                   <Button href={WHATSAPP_URL} variant="primary" fullWidth>

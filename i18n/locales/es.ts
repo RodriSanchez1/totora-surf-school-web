@@ -165,43 +165,97 @@ export const es = {
   'surfSchoolPage.levels.title': 'Clases para Todos los Niveles',
   'surfSchoolPage.levels.subtitle': 'Encuentra el programa perfecto para ti',
   'surfSchoolPage.levels.beginner.title': 'Principiante',
-  'surfSchoolPage.levels.beginner.desc': 'Aprende los fundamentos del surf: seguridad, técnica de remo, cómo pararte en la tabla y coger tus primeras olas. Incluye teoría en playa y práctica en el agua.',
+  'surfSchoolPage.levels.beginner.desc': 'Clase de diversión para tu primera o primeras aproximaciones al surf. 30 minutos de teoría en playa sobre seguridad y técnica básica, más 1 hora dentro del agua con el profesor aprendiendo a pararte en la tabla y coger tus primeras olas.',
   'surfSchoolPage.levels.beginner.duration': '1:30 horas',
+  'surfSchoolPage.levels.beginner.price': '100 soles',
+  'surfSchoolPage.levels.beginner.included1': 'Wetsuit y tabla',
+  'surfSchoolPage.levels.beginner.included2': 'Instructor calificado',
+  'surfSchoolPage.levels.beginner.included3': 'Ducha, toalla, lockers y bloqueador solar',
+  'surfSchoolPage.levels.beginner.included4': 'Usar la tabla y traje libremente el día de la clase',
   'surfSchoolPage.levels.intermediate.title': 'Intermedio',
-  'surfSchoolPage.levels.intermediate.desc': 'Mejora tu técnica de bottom turn, cutback y lectura de olas. Aprende a surfear olas más grandes y perfecciona tu estilo.',
+  'surfSchoolPage.levels.intermediate.desc': 'Clase de 1:30 horas que incluye entrada en calor enfocada al surf. En el agua recibirás guía personalizada en posicionamiento, cómo escoger la ola correcta, mejora de técnica de bottom turn y cutback. Videos de tu sesión incluidos.',
   'surfSchoolPage.levels.intermediate.duration': '1:30 horas',
+  'surfSchoolPage.levels.intermediate.price': '120 soles',
+  'surfSchoolPage.levels.intermediate.included1': 'Wetsuit y tabla',
+  'surfSchoolPage.levels.intermediate.included2': 'Instructor Diego Venegas',
+  'surfSchoolPage.levels.intermediate.included3': 'Ducha, toalla, lockers y bloqueador solar',
+  'surfSchoolPage.levels.intermediate.included4': 'Usar la tabla y traje libremente el día de la clase',
+  'surfSchoolPage.levels.intermediate.included5': 'Filmación de toda la sesión',
   'surfSchoolPage.levels.advanced.title': 'Avanzado',
-  'surfSchoolPage.levels.advanced.desc': 'Entrenamiento especializado para maniobras avanzadas, surf en tubos y preparación para competencias. Incluye análisis de video detallado.',
+  'surfSchoolPage.levels.advanced.desc': 'Sesión de filmación profesional de 1:30 horas con cámara de alta calidad. Incluye indicaciones pre y post surfing para mejorar tus maniobras, posicionamiento en el agua, timing y lectura de olas. Análisis de video completo y seguimiento de tu progreso incluidos.',
   'surfSchoolPage.levels.advanced.duration': '1:30 horas',
+  'surfSchoolPage.levels.advanced.price': '150 soles',
+  'surfSchoolPage.levels.advanced.included1': 'Ducha, toalla, lockers y bloqueador solar',
+  'surfSchoolPage.levels.advanced.included2': 'Filmación de alta calidad de toda la sesión',
+  'surfSchoolPage.levels.advanced.included3': 'Surf Análisis de todas las olas',
 
   // Pricing
   'surfSchoolPage.levels.basePrice': '100 soles',
   'surfSchoolPage.levels.perClass': 'por clase',
 
+  // What's Included
+  'surfSchoolPage.levels.whatsIncluded': '¿Qué incluye?',
+
   // Opcionales
   'surfSchoolPage.levels.optional': 'Opcionales',
-  'surfSchoolPage.levels.optionalPhotos': 'Fotos de tu sesión',
-  'surfSchoolPage.levels.optionalPhotosPrice': '+15 soles',
-  'surfSchoolPage.levels.optionalVideos': 'Video de tu sesión',
-  'surfSchoolPage.levels.optionalVideosPrice': '+40 soles',
 
-  // Badge especial video análisis
-  'surfSchoolPage.levels.videoAnalysisBadge': 'Incluye análisis técnico de ola',
-  'surfSchoolPage.levels.videoAnalysisDesc': 'El instructor te acompaña, filma toda tu ola y luego analiza tu técnica',
+  // Opcionales Beginner
+  'surfSchoolPage.levels.beginner.optionalMedia': 'Fotos o videos de tu sesión',
+  'surfSchoolPage.levels.beginner.optionalMediaPrice': '+20 soles',
+
+  // Opcionales e Incluidos Intermediate
+  'surfSchoolPage.levels.intermediate.videosIncluded': 'Videos básicos incluidos',
+  'surfSchoolPage.levels.intermediate.videosIncludedDesc': 'Grabación de tu sesión para que tengas recuerdos',
+  'surfSchoolPage.levels.intermediate.optionalAnalysis': 'Análisis técnico de video',
+  'surfSchoolPage.levels.intermediate.optionalAnalysisPrice': '+30 soles',
+  'surfSchoolPage.levels.intermediate.optionalAnalysisDesc': 'Corrección de postura, movimiento en la ola, técnica',
+
+  // Incluidos Advanced
+  'surfSchoolPage.levels.advanced.analysisIncluded': 'Análisis de video incluido',
+  'surfSchoolPage.levels.advanced.analysisIncludedDesc': 'Seguimiento completo de tu progreso con el instructor',
+
+  // Opcional Drone (para todos los niveles)
+  'surfSchoolPage.levels.optionalDrone': 'Video con drone de tu sesión',
+  'surfSchoolPage.levels.optionalDronePrice': '+150 soles',
 
   // Paquetes
   'surfSchoolPage.levels.packages': 'Paquetes con Descuento',
   'surfSchoolPage.levels.viewPackages': 'Ver Paquetes',
   'surfSchoolPage.levels.hidePackages': 'Ocultar Paquetes',
-  'surfSchoolPage.levels.package5': '5 clases',
-  'surfSchoolPage.levels.package5Price': '450 soles',
-  'surfSchoolPage.levels.package5PerClass': '90 soles/clase',
-  'surfSchoolPage.levels.package10': '10 clases',
-  'surfSchoolPage.levels.package10Price': '850 soles',
-  'surfSchoolPage.levels.package10PerClass': '85 soles/clase',
-  'surfSchoolPage.levels.package15': '15 clases',
-  'surfSchoolPage.levels.package15Price': '1,200 soles',
-  'surfSchoolPage.levels.package15PerClass': '80 soles/clase',
+
+  // Paquetes Beginner
+  'surfSchoolPage.levels.beginner.package5': '5 clases',
+  'surfSchoolPage.levels.beginner.package5Price': '450 soles',
+  'surfSchoolPage.levels.beginner.package5PerClass': '90 soles/clase',
+  'surfSchoolPage.levels.beginner.package10': '10 clases',
+  'surfSchoolPage.levels.beginner.package10Price': '850 soles',
+  'surfSchoolPage.levels.beginner.package10PerClass': '85 soles/clase',
+  'surfSchoolPage.levels.beginner.package15': '15 clases',
+  'surfSchoolPage.levels.beginner.package15Price': '1,200 soles',
+  'surfSchoolPage.levels.beginner.package15PerClass': '80 soles/clase',
+
+  // Paquetes Intermediate
+  'surfSchoolPage.levels.intermediate.package5': '5 clases',
+  'surfSchoolPage.levels.intermediate.package5Price': '540 soles',
+  'surfSchoolPage.levels.intermediate.package5PerClass': '108 soles/clase',
+  'surfSchoolPage.levels.intermediate.package10': '10 clases',
+  'surfSchoolPage.levels.intermediate.package10Price': '1,020 soles',
+  'surfSchoolPage.levels.intermediate.package10PerClass': '102 soles/clase',
+  'surfSchoolPage.levels.intermediate.package15': '15 clases',
+  'surfSchoolPage.levels.intermediate.package15Price': '1,440 soles',
+  'surfSchoolPage.levels.intermediate.package15PerClass': '96 soles/clase',
+
+  // Paquetes Advanced
+  'surfSchoolPage.levels.advanced.package5': '5 clases',
+  'surfSchoolPage.levels.advanced.package5Price': '675 soles',
+  'surfSchoolPage.levels.advanced.package5PerClass': '135 soles/clase',
+  'surfSchoolPage.levels.advanced.package10': '10 clases',
+  'surfSchoolPage.levels.advanced.package10Price': '1,275 soles',
+  'surfSchoolPage.levels.advanced.package10PerClass': '127.50 soles/clase',
+  'surfSchoolPage.levels.advanced.package15': '15 clases',
+  'surfSchoolPage.levels.advanced.package15Price': '1,800 soles',
+  'surfSchoolPage.levels.advanced.package15PerClass': '120 soles/clase',
+
   'surfSchoolPage.levels.save': 'Ahorra {discount}%',
   'surfSchoolPage.levels.bestValue': 'Mejor Valor',
   'surfSchoolPage.levels.bookButton': 'Reservar Ahora',
