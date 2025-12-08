@@ -218,8 +218,8 @@ export const SurfSchoolPage: React.FC = () => {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  {/* Description - Variable height */}
-                  <p className="text-gray-600 mb-4 leading-relaxed min-h-[120px]">
+                  {/* Description - Fixed height */}
+                  <p className="text-gray-600 mb-6 leading-relaxed h-[160px] overflow-hidden">
                     <FormattedMessage id={level.descId} />
                   </p>
 
@@ -233,8 +233,8 @@ export const SurfSchoolPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* What's Included Section - Variable height with min */}
-                  <div className="mb-4 p-4 bg-white rounded-lg border-2 border-totora-light/20 min-h-[200px]">
+                  {/* What's Included Section - Fixed height */}
+                  <div className="mb-4 p-4 bg-white rounded-lg border-2 border-totora-light/20 h-[240px]">
                     <h4 className="text-sm font-bold text-totora-dark mb-3 uppercase tracking-wide">
                       <FormattedMessage id="surfSchoolPage.levels.whatsIncluded" />
                     </h4>
@@ -251,7 +251,7 @@ export const SurfSchoolPage: React.FC = () => {
                   </div>
 
                   {/* Optional Add-ons - Fixed height */}
-                  <div className="mb-6 min-h-[160px]">
+                  <div className="mb-3 h-[155px]">
                     <h4 className="text-sm font-semibold text-totora-dark mb-3">
                       <FormattedMessage id="surfSchoolPage.levels.optional" />
                     </h4>
@@ -326,11 +326,6 @@ export const SurfSchoolPage: React.FC = () => {
                                   <span className="font-bold text-totora-dark text-sm">
                                     <FormattedMessage id={`surfSchoolPage.levels.${level.id}.package${pkg.classes}`} />
                                   </span>
-                                  {pkg.isBestValue && (
-                                    <span className="bg-totora-yellow text-totora-dark text-xs px-2 py-0.5 rounded-full font-semibold">
-                                      <FormattedMessage id="surfSchoolPage.levels.bestValue" />
-                                    </span>
-                                  )}
                                   <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-semibold">
                                     <FormattedMessage id="surfSchoolPage.levels.save" values={{ discount: pkg.discount }} />
                                   </span>
