@@ -12,7 +12,7 @@ export const About: React.FC = () => {
           <div className="relative order-2 md:order-1">
             <div className="absolute -inset-4 bg-totora-yellow/20 rounded-2xl transform -rotate-3"></div>
             <img
-              src="/images/donpepe.webp"
+              src="/images/hostel/totora-front.webp"
               alt="Don Pepe restaurant"
               className="relative rounded-2xl shadow-xl w-full h-96 object-cover"
             />

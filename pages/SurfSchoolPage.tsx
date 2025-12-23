@@ -404,7 +404,7 @@ export const SurfSchoolPage: React.FC = () => {
                 <FormattedMessage id="surfSchoolPage.equipment.wetsuits.feature4" />
               ]}
               icon={Shield}
-              imageUrl="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=2070&auto=format&fit=crop"
+              imageUrl="/images/chicamaboys.webp"
               imageAlt={<FormattedMessage id="surfSchoolPage.equipment.wetsuits.alt" />}
             />
           </div>
@@ -414,9 +414,9 @@ export const SurfSchoolPage: React.FC = () => {
       {/* Video Services Section */}
       <VideoBackground
         videoSources={{
-          mobile: '/videos/huanchaco_drone_720p.mp4',
-          tablet: '/videos/huanchaco_drone_720p.mp4',
-          desktop: '/videos/huanchaco_drone_1080p.mp4'
+          mobile: '/videos/huanchaco_drone.mp4',
+          tablet: '/videos/huanchaco_drone.mp4',
+          desktop: '/videos/huanchaco_drone.mp4'
         }}
         poster="/videos/huanchaco_drone_poster.webp"
         overlay="dark"

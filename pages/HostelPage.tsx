@@ -538,7 +538,7 @@ export const HostelPage: React.FC = () => {
       </section>
 
       {/* Gallery Section */}
-      <Gallery />
+      {/* <Gallery /> */}
 
       {/* Booking Form Section */}
       <section ref={bookingSectionRef} className="py-20 bg-totora-dark relative overflow-hidden">
