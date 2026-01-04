@@ -5,7 +5,7 @@ export const es = {
   'nav.book': 'Reserva Ahora',
 
   'hero.title': 'Aprende a Surfear en la <highlight>Cuna del Caballito de Totora</highlight>',
-  'hero.title.sub': '| Totora Surf School',
+  'hero.title.sub': 'Totora Surf School',
   'hero.subtitle': 'Clases, Surf Trips y tu campamento base frente al mar en el norte del Perú.',
   'hero.cta': '¡Reserva tu Aventura Ahora!',
 
@@ -30,6 +30,12 @@ export const es = {
 
   'testimonials.title': 'Experiencias Reales',
   'testimonials.subtitle': 'Lo que dicen nuestros surfistas',
+  'testimonials.platform.tripadvisor': 'TripAdvisor',
+  'testimonials.platform.hostelworld': 'Hostelworld',
+  'testimonials.platform.google': 'Google Maps',
+  'testimonials.verified': 'Revisor Verificado',
+  'testimonials.viewReview': 'Ver',
+  'testimonials.moreOn': 'Más opiniones en',
   'testimonials.review1.text': 'Tomé clases durante mi estancia y fue increíble. Los instructores tienen muchísima paciencia y te hacen sentir segura en el agua. ¡Logré pararme en mi primera clase!',
   'testimonials.review1.title': '¡La mejor experiencia de surf!',
   'testimonials.review2.text': 'El hostel tiene una ubicación perfecta frente al mar. El ambiente es super relajado y familiar. Las clases de surf son muy profesionales. ¡Volveré sin duda!',
