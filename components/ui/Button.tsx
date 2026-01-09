@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { LocalizedLink } from './LocalizedLink';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline';
@@ -37,12 +37,12 @@ export const Button: React.FC<ButtonProps> = ({
     );
   }
 
-  // Internal routing
+  // Internal routing (localized)
   if (to) {
     return (
-      <Link to={to} className={combinedClasses}>
+      <LocalizedLink to={to} className={combinedClasses}>
         {children}
-      </Link>
+      </LocalizedLink>
     );
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { LocalizedLink } from '../ui/LocalizedLink';
 import { ArrowRight } from 'lucide-react';
 
 export const About: React.FC = () => {
@@ -38,13 +38,13 @@ export const About: React.FC = () => {
               <p><FormattedMessage id="about.p2" /></p>
               <p><FormattedMessage id="about.p3" /></p>
             </div>
-            <Link
+            <LocalizedLink
               to="/about"
               className="inline-flex items-center gap-2 text-totora-dark font-semibold text-lg hover:text-totora-light transition-colors group"
             >
               <FormattedMessage id="about.learnMore" />
               <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </LocalizedLink>
           </div>
         </div>
       </div>

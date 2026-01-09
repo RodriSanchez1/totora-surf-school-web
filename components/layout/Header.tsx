@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Logo } from '../ui/Logo';
 import { Button } from '../ui/Button';
+import { LocalizedLink } from '../ui/LocalizedLink';
 import { NAVIGATION_LINKS, WHATSAPP_URL } from '../../constants';
 import { FormattedMessage } from 'react-intl';
 import { LanguageSelector } from '../shared/LanguageSelector';
@@ -28,20 +28,20 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
+          <LocalizedLink to="/" className="flex-shrink-0">
             <Logo className={`transition-all duration-300 ${isScrolled ? 'h-10 md:h-10' : 'h-12 md:h-12'}`} />
-          </Link>
+          </LocalizedLink>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             {NAVIGATION_LINKS.map((link) => (
-              <Link
+              <LocalizedLink
                 key={link.id}
                 to={link.href}
                 className="text-gray-700 hover:text-totora-dark font-medium transition-colors"
               >
                 <FormattedMessage id={link.id} />
-              </Link>
+              </LocalizedLink>
             ))}
             <div className="border-l border-gray-300 pl-6 flex items-center gap-4">
               <LanguageSelector />
@@ -69,14 +69,14 @@ export const Header: React.FC = () => {
         <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
           <div className="px-4 pt-2 pb-6 space-y-4 flex flex-col items-center">
             {NAVIGATION_LINKS.map((link) => (
-              <Link
+              <LocalizedLink
                 key={link.id}
                 to={link.href}
                 className="block w-full text-center py-2 text-lg text-gray-800 font-medium hover:text-totora-dark hover:bg-gray-50 rounded-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <FormattedMessage id={link.id} />
-              </Link>
+              </LocalizedLink>
             ))}
             <Button href={WHATSAPP_URL} variant="primary" fullWidth onClick={() => setIsMobileMenuOpen(false)}>
               <FormattedMessage id="nav.book" />
