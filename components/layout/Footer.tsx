@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { Logo } from "../ui/Logo";
+import { LocalizedLink } from "../ui/LocalizedLink";
 import { NAVIGATION_LINKS, WHATSAPP_URL, CONTACT_INFO } from "../../constants";
 import { Button } from "../ui/Button";
 import { FormattedMessage } from "react-intl";
@@ -47,12 +47,12 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               {NAVIGATION_LINKS.map((link) => (
                 <li key={link.id}>
-                  <Link
+                  <LocalizedLink
                     to={link.href}
                     className="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
                   >
                     <FormattedMessage id={link.id} />
-                  </Link>
+                  </LocalizedLink>
                 </li>
               ))}
             </ul>

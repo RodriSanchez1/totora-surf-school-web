@@ -1,11 +1,11 @@
-import { enUS } from './locales/en-US';
+import { en } from './locales/en';
 import { es } from './locales/es';
-import { ptBR } from './locales/pt-BR';
+import { pt } from './locales/pt';
 import { fr } from './locales/fr';
 
 export const messages = {
-  'en-US': enUS,
+  'en': en,
   'es': es,
-  'pt-BR': ptBR,
+  'pt': pt,
   'fr': fr
 };
