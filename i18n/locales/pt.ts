@@ -1,4 +1,4 @@
-export const ptBR = {
+export const pt = {
   'nav.about': 'Sobre Nós',
   'nav.hostel': 'Hostel',
   'nav.surfSchool': 'Escola de Surf',

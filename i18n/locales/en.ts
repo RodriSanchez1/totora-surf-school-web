@@ -1,4 +1,4 @@
-export const enUS = {
+export const en = {
   'nav.about': 'About Us',
   'nav.hostel': 'Hostel',
   'nav.surfSchool': 'Surf School',

@@ -1,62 +1,49 @@
-// URL locale codes (short, for SEO-friendly URLs)
 export type UrlLocale = 'en' | 'es' | 'pt' | 'fr';
 
-// Internal locale codes (used by react-intl)
-export type InternalLocale = 'en-US' | 'es' | 'pt-BR' | 'fr';
+export type InternalLocale = 'en' | 'es' | 'pt' | 'fr';
 
-// Default locale for redirect from root
 export const DEFAULT_URL_LOCALE: UrlLocale = 'es';
 
-// All supported URL locales
 export const SUPPORTED_URL_LOCALES: UrlLocale[] = ['en', 'es', 'pt', 'fr'];
 
-// Mapping from URL locale to internal locale
 const urlToInternalMap: Record<UrlLocale, InternalLocale> = {
-  'en': 'en-US',
+  'en': 'en',
   'es': 'es',
-  'pt': 'pt-BR',
+  'pt': 'pt',
   'fr': 'fr',
 };
 
-// Mapping from internal locale to URL locale
 const internalToUrlMap: Record<InternalLocale, UrlLocale> = {
-  'en-US': 'en',
+  'en': 'en',
   'es': 'es',
-  'pt-BR': 'pt',
+  'pt': 'pt',
   'fr': 'fr',
 };
 
-// Convert URL locale to internal locale
 export function urlLocaleToInternal(urlLocale: string): InternalLocale {
   const normalized = urlLocale.toLowerCase() as UrlLocale;
-  return urlToInternalMap[normalized] || 'en-US';
+  return urlToInternalMap[normalized] || 'en';
 }
 
-// Convert internal locale to URL locale
 export function internalLocaleToUrl(internalLocale: string): UrlLocale {
   return internalToUrlMap[internalLocale as InternalLocale] || 'en';
 }
 
-// Check if a string is a valid URL locale
 export function isValidUrlLocale(locale: string): locale is UrlLocale {
   return SUPPORTED_URL_LOCALES.includes(locale.toLowerCase() as UrlLocale);
 }
 
-// Get browser's preferred locale as URL locale
 export function getBrowserUrlLocale(): UrlLocale {
   const browserLang = navigator.language;
-
-  // Check for direct match
   const shortLang = browserLang.split('-')[0].toLowerCase();
+
   if (isValidUrlLocale(shortLang)) {
     return shortLang;
   }
 
-  // Default to Spanish (primary audience)
   return DEFAULT_URL_LOCALE;
 }
 
-// Locale display information for SEO
 export const localeInfo: Record<UrlLocale, { name: string; nativeName: string; hreflang: string }> = {
   'en': { name: 'English', nativeName: 'English', hreflang: 'en' },
   'es': { name: 'Spanish', nativeName: 'Español', hreflang: 'es' },

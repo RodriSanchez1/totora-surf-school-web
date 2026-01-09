@@ -12,13 +12,10 @@ import { SurfSchoolPage } from './pages/SurfSchoolPage';
 import { isValidUrlLocale, getBrowserUrlLocale, type UrlLocale } from './i18n/localeUtils';
 import { HreflangTags } from './components/seo/HreflangTags';
 
-// Component that wraps content with LanguageProvider based on URL locale
 const LocalizedApp: React.FC = () => {
   const { lang } = useParams<{ lang: string }>();
 
-  // Validate the locale from URL
   if (!lang || !isValidUrlLocale(lang)) {
-    // Redirect to default locale if invalid
     return <Navigate to={`/${getBrowserUrlLocale()}`} replace />;
   }
 
@@ -33,7 +30,6 @@ const LocalizedApp: React.FC = () => {
           <Route path="about" element={<AboutPage />} />
           <Route path="hostel" element={<HostelPage />} />
           <Route path="surf-school" element={<SurfSchoolPage />} />
-          {/* Catch-all for unknown routes within locale */}
           <Route path="*" element={<Navigate to="" replace />} />
         </Routes>
         <Footer />
@@ -43,7 +39,6 @@ const LocalizedApp: React.FC = () => {
   );
 };
 
-// Root redirect component
 const RootRedirect: React.FC = () => {
   const browserLocale = getBrowserUrlLocale();
   return <Navigate to={`/${browserLocale}`} replace />;
@@ -53,13 +48,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Root redirects to browser's preferred locale */}
         <Route path="/" element={<RootRedirect />} />
-
-        {/* All localized routes */}
         <Route path="/:lang/*" element={<LocalizedApp />} />
-
-        {/* Catch-all fallback */}
         <Route path="*" element={<RootRedirect />} />
       </Routes>
     </Router>

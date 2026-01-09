@@ -10,7 +10,6 @@ interface LocalizedLinkProps extends Omit<LinkProps, 'to'> {
 export const LocalizedLink: React.FC<LocalizedLinkProps> = ({ to, children, ...props }) => {
   const { getLocalizedPath } = useLanguage();
 
-  // Handle root path
   const localizedTo = to === '/' ? getLocalizedPath('') : getLocalizedPath(to);
 
   return (
